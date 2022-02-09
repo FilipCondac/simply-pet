@@ -136,6 +136,20 @@ ul li:hover {
   margin-bottom: 10px;
 }
 
+.slidePic {
+  border-radius: 50%;
+  margin-bottom: 20px;
+  padding-top: 2.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  height: 24rem;
+  
+}
+
+
+
 @media only screen and (max-width: 780px) {
   header nav {
     display: none;
