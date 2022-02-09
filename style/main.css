@@ -33,6 +33,10 @@ header {
 
 }
 
+.logo{
+  width: 18%;
+}
+
 #brand a {
   color: #0077B6;
 }
@@ -111,7 +115,7 @@ ul li:hover {
   margin-bottom: 10px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 780px) {
   header nav {
     display: none;
   }
