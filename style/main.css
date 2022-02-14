@@ -43,6 +43,14 @@ header {
   width: 18%;
 }
 
+.intro {
+  position: relative;
+  text-align: center;
+  padding-top: 3em;
+  padding-bottom: 1em;
+}
+
+
 #brand a {
   color: #0077B6;
 }
@@ -209,6 +217,11 @@ text-align: center;
   width: 33.33%;
 }
 
+.column2x2{
+  float: left;
+  width: 50%;
+}
+
 .zoom:hover{
   transform: scale(1.1);
   transition: 0.3s;
@@ -231,5 +244,29 @@ text-align: center;
   #hamburger-icon {
     display: block;
   }
+}
+
+.pet-information{
+  width: 100%;
+  margin-top: 30px;
+  background-color: #0077B6;
+}
+
+.profile-picture{
+  border-radius: 20%;
+  display: block;
+  padding: 25px ;
+  height: 30rem;
+  width: 30rem
+}
+
+@media  only screen and (max-width: 780px){
+  .profile-picture{
+    margin: auto;
+  }
+  .column2x2{
+    display:contents
+  }
+
 }
 
