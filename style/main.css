@@ -19,7 +19,7 @@ header a {
 header {
   padding: 0 20px;
   background-color: #55468d;
-  height: 20%;
+  height: 65px;
   display: flex;
   justify-content: space-between;
 }
@@ -48,6 +48,10 @@ header {
   color: #00a6ff;
 }
 
+.brand-h1{
+  font-size: 1.2rem;
+}
+
 ul {
   list-style: none;
   height: 100%;
@@ -57,7 +61,7 @@ ul {
 }
 
 ul a {
-  color: #00a6ff;
+  color: #FFFFFF;
 
 }
 
@@ -80,15 +84,15 @@ ul li:hover {
 }
 
 #login {
-  border: 1px solid #00a6ff;;
+  border: 1px solid #00a6ff;
 }
 
 #signup {
-  border: 1px solid #ff3860;
+  border: 1px solid #00a6ff;
 }
 
 #signup a {
-  color: #ff3860;
+  color: #00a6ff;
 }
 
 #login a {
