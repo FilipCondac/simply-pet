@@ -249,7 +249,7 @@ ul li:hover {
   padding-left: 1rem;
   padding-bottom: 10px;
   background: linear-gradient(lightblue, white);
-  cursor: pointer;
+  cursor: pointer;  
 }
 @media only screen and (max-width: 1200px) {
   .id-card-column{
@@ -423,9 +423,14 @@ ul li:hover {
 
 .pet-information {
   width: 100%;
-  margin-top: 30px;
-<<<<<<< HEAD
+  margin-top: 10px;
+  padding-top: 10px;
   background-color: #55468d;
+}
+
+.bg-img {
+  background-image: url('../img/pawprint.jpg');
+  
 }
 
 .pet-info-container{
@@ -525,7 +530,4 @@ ul li:hover {
     display: contents
   }
 
-=======
-  background-color: #0077B6;
->>>>>>> 48a96cb7aa1ec871ad85146ce421509a496763a7
 }
