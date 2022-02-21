@@ -2,6 +2,7 @@ function toggleMobileMenu(menu) {
   menu.classList.toggle('open');
 }
 
+<<<<<<< HEAD
 var divs = ["section1", "section2", "section3"]
 
 function show(id) {
@@ -14,4 +15,6 @@ function show(id) {
     }
   }
   }
+=======
+>>>>>>> 48a96cb7aa1ec871ad85146ce421509a496763a7
 
