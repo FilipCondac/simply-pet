@@ -232,8 +232,49 @@ ul li:hover {
 
 .column2x2 {
   float: left;
-  width: 50%;
+  width: 40%;
 }
+
+.id-card-column {
+  float:left;
+  width: 30%;
+  align-items: center;
+  height: 200px;
+  box-shadow: 10px 10px 10px -5px black;
+  border-radius: 10%;
+  margin: 20px;
+  flex: 25%;
+  padding-left: 1rem;
+  padding-bottom: 10px;
+  background: linear-gradient(lightblue, white);
+  cursor: pointer;
+}
+@media only screen and (max-width: 1200px) {
+  .id-card-column{
+    width: 35%;
+    min-width: 45%;
+  }
+  .pet-information{
+    padding-left: 2%;
+  }
+}
+@media only screen and (max-width: 820px) {
+  .id-card-column{
+    min-width: 80%;
+    align-items: center;
+    max-width: 70%;
+  } 
+  .pet-information{
+    padding-left: 7%;
+  }
+}
+
+.id-card-column:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+  box-shadow: 5px 5px 5px 5px black;
+}
+
 
 .zoom:hover {
   transform: scale(1.1);
@@ -282,7 +323,30 @@ ul li:hover {
 .pet-information {
   width: 100%;
   margin-top: 30px;
-  background-color: #0077B6;
+  background-color: #55468d;
+}
+
+.pet-info-container{
+  margin-top: 50px;
+}
+
+.pet-info-text{
+  text-align: left;
+  display: inline;
+  font-size: xx-large;
+}
+
+@media only screen and (max-width: 1200px) {
+  .pet-info-text{
+    font-size:x-large;
+  }
+  .pet-info-container{
+    margin-left: 100px;
+  }
+  .qr-code{
+    max-width: 6em;
+    max-height: 6em;
+  }
 }
 
 .profile-picture {
@@ -290,7 +354,64 @@ ul li:hover {
   display: block;
   padding: 25px;
   height: 30rem;
-  width: 30rem
+  width: 30rem;
+}
+
+@media only screen and (max-width: 930px) {
+  .profile-picture{
+    max-width: 20rem;
+    max-height: 20rem;
+  }
+}
+
+.book-apt-button{
+  margin-top: 1em;
+  padding:  5px;
+  border-radius: 10%;
+  cursor: pointer;
+  background: linear-gradient(lightblue, white);
+  border-width: 1px;
+}
+
+.qr-code{
+  float: right;
+  height: 10em;
+  margin-right: 3em;
+  margin-top: 2em;
+}
+
+.id-card-image{
+  height: 80%;
+  margin-top: 17px;
+  margin-left: 10px;
+}
+
+.id-card-text{
+  display: inline-block;
+  align-items:center;
+  vertical-align: top;
+  margin-top: 10px;
+  margin-left: 5%;
+}
+
+.id-card-number{
+  text-align: center;
+  margin-right: 25px;
+  background-color: lightblue;
+}
+
+.id-card-add{
+  height: 60%;
+  margin-top: 40px;
+  margin-left: 30px;
+}
+
+.id-card-add-text{
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 90px;
+  margin-left: 10%;
 }
 
 @media only screen and (max-width: 780px) {
