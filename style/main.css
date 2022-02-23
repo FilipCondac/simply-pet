@@ -1,13 +1,6 @@
 body {
-<<<<<<< HEAD
   margin: 0;
   font-family: "Georama", sans-serif;
-=======
-  font-family: 'Georama', sans-serif;
-  display: flex;
-  flex-direction: column;
- 
->>>>>>> ed86cd1c5b989dde8612c2898a7eff5ae77c983c
 }
 
 * {
@@ -19,7 +12,6 @@ body {
 /* Nav bar Content */
 header a {
   text-decoration: none;
-  width: 100%;
 }
 
 header {
@@ -225,7 +217,7 @@ ul li:hover {
   width: 30.33%;
   margin-right: 20px;
   margin-left: 20px;
-  height: 32rem;
+  height: 450px;
   box-shadow: 5px 10px 5px -5px lightblue;
   background-color: white;
 }
@@ -398,7 +390,6 @@ ul li:hover {
   }
 }
 
-<<<<<<< HEAD
 /*styling for appointment page*/
 /* not required 
 *,
@@ -420,10 +411,6 @@ body {
 }
 input {
   font-family: Helvetica, Arial, sans-serif;
-=======
-footer{
-  
->>>>>>> ed86cd1c5b989dde8612c2898a7eff5ae77c983c
 }
 
 h1,
@@ -737,24 +724,6 @@ a {
   margin-left: 10%;
 }
 
-@media only screen and (max-width: 1325px) {
-.column{
-  height: 100%;
-  width: 100%;
-  margin-top: 20px;
-  display: inline-block;
-}
-
-.top-column{
-  margin: none;
-}
-
-#service-pic{
-  width: auto;
-  height: auto;
-}
-}
-
 @media only screen and (max-width: 780px) {
   .profile-picture {
     margin: auto;
@@ -763,37 +732,6 @@ a {
   .column2x2 {
     display: contents;
   }
-<<<<<<< HEAD
-=======
-
-  .top-bg-img {
-    display: none;
-    margin-right: 0;
-    background-color: none;
-  }
-
-  .main-text{
-    text-align: center;
-    margin-left: 150px;
-    margin-right: 200px;
-  }
-
-  .column{
-    height: 100%;
-    width: 100%;
-    margin-top: 20px;
-    display: inline-block;
-  }
-
-  .top-column{
-    margin: none;
-  }
-
-  #service-pic{
-    display: none;
-  }
-
->>>>>>> ed86cd1c5b989dde8612c2898a7eff5ae77c983c
 }
 /* Set the size of the div element that contains the map */
 #map {
