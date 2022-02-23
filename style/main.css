@@ -1,13 +1,16 @@
 body {
-<<<<<<< HEAD
+
   margin: 0;
   font-family: "Georama", sans-serif;
-=======
+
   font-family: 'Georama', sans-serif;
   display: flex;
   flex-direction: column;
  
->>>>>>> ed86cd1c5b989dde8612c2898a7eff5ae77c983c
+
+  margin: 0;
+  font-family: 'Georama', sans-serif;
+
 }
 
 * {
@@ -19,7 +22,6 @@ body {
 /* Nav bar Content */
 header a {
   text-decoration: none;
-  width: 100%;
 }
 
 header {
@@ -225,7 +227,7 @@ ul li:hover {
   width: 30.33%;
   margin-right: 20px;
   margin-left: 20px;
-  height: 32rem;
+  height: 450px;
   box-shadow: 5px 10px 5px -5px lightblue;
   background-color: white;
 }
@@ -275,6 +277,7 @@ ul li:hover {
   box-shadow: 5px 5px 5px 5px black;
 }
 
+
 .zoom:hover {
   transform: scale(1.1);
   transition: 0.3s;
@@ -312,7 +315,25 @@ ul li:hover {
   width: 30rem;
 }
 
-/* Testemonials  */
+.add-profile-picture {
+  border-radius: 20%;
+  display: block;
+  padding: 25px;
+  width: 20rem; 
+  height: 20rem; 
+  margin-left: 5rem; 
+  margin-top: 4rem; 
+  margin-bottom: 6rem;
+}
+
+.add-profile-picture:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+  box-shadow: 5px 5px 5px 5px lightblue;
+  cursor: pointer;
+}
+
+ /* Testemonials  */
 .home-testimonial {
   background-color: #55468d;
   /* height: 380px */
@@ -398,7 +419,6 @@ ul li:hover {
   }
 }
 
-<<<<<<< HEAD
 /*styling for appointment page*/
 /* not required 
 *,
@@ -420,11 +440,10 @@ body {
 }
 input {
   font-family: Helvetica, Arial, sans-serif;
-=======
-footer{
-  
->>>>>>> ed86cd1c5b989dde8612c2898a7eff5ae77c983c
+
 }
+
+
 
 h1,
 h2,
@@ -704,6 +723,13 @@ a {
 }
 
 .id-card-image {
+.qr-code:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.id-card-image{
   height: 80%;
   margin-top: 17px;
   margin-left: 10px;
@@ -737,24 +763,6 @@ a {
   margin-left: 10%;
 }
 
-@media only screen and (max-width: 1325px) {
-.column{
-  height: 100%;
-  width: 100%;
-  margin-top: 20px;
-  display: inline-block;
-}
-
-.top-column{
-  margin: none;
-}
-
-#service-pic{
-  width: auto;
-  height: auto;
-}
-}
-
 @media only screen and (max-width: 780px) {
   .profile-picture {
     margin: auto;
@@ -766,6 +774,7 @@ a {
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
   .top-bg-img {
     display: none;
     margin-right: 0;
@@ -794,7 +803,16 @@ a {
   }
 
 >>>>>>> ed86cd1c5b989dde8612c2898a7eff5ae77c983c
+=======
+>>>>>>> 70b0c792f452cb587a3d65d9741b8f7b999417d7
 }
+
+input[type=text] {
+  width: 40%;
+  padding: 3px 0.5px 1px 10px;
+  box-sizing: border-box;
+}
+
 /* Set the size of the div element that contains the map */
 #map {
   height: 400px;
