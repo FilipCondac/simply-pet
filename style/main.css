@@ -414,6 +414,34 @@ footer {
 
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+.dark {
+  --bg-body: var(--dark-body);
+  --bg-main: var(--dark-main);
+  --bg-second: var (--dark-second);
+  --color-hover: var(--dark-text);
+  --color-txt: var(--dark-text);
+}
+
+.light {
+  --bg-body: var(--light-body);
+  --bg-main: var(--light-main);
+  --bg-second: var (--light-second);
+  --color-hover: var(--light-text);
+  --color-txt: var(--light-text);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#appspage {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-family);
+}
 
 /* Media Queries */
 @media only screen and (max-width: 780px) {
