@@ -1,15 +1,13 @@
 body {
-  font-family: 'Georama', sans-serif;
+  font-family: "Georama", sans-serif;
   display: flex;
   flex-direction: column;
- 
 }
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
 }
 
 /* Nav bar Content */
@@ -17,7 +15,6 @@ header a {
   text-decoration: none;
   width: 100%;
 }
-
 
 header {
   padding: 0 20px;
@@ -32,7 +29,6 @@ header {
   font-size: 18px;
   display: flex;
   align-items: center;
-
 }
 
 .logo {
@@ -45,7 +41,6 @@ header {
   padding-top: 3em;
   padding-bottom: 1em;
 }
-
 
 #brand a {
   color: #00a6ff;
@@ -64,15 +59,12 @@ ul {
 }
 
 ul a {
-  color: #FFFFFF;
-
+  color: #ffffff;
 }
 
 ul li {
   padding: 5px;
   margin-left: 20px;
-
-
 }
 
 ul li:hover {
@@ -100,7 +92,6 @@ ul li:hover {
 
 #login a {
   color: #00a6ff;
-  ;
 }
 
 #hamburger-icon {
@@ -113,7 +104,6 @@ ul li:hover {
   width: 35px;
   height: 3px;
   background-color: #00a6ff;
-  ;
   margin: 6px 0;
   transition: 0.4s;
 }
@@ -152,7 +142,6 @@ ul li:hover {
   margin-bottom: 10px;
 }
 
-
 /* Main page Content */
 .top-bg-img {
   display: block;
@@ -172,7 +161,7 @@ ul li:hover {
 
 .h3-main-page {
   font-size: 3rem;
-  background: -webkit-linear-gradient(#0096C7, #48CAE4);
+  background: -webkit-linear-gradient(#0096c7, #48cae4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -241,7 +230,7 @@ ul li:hover {
 }
 
 .id-card-column {
-  float:left;
+  float: left;
   width: 30%;
   align-items: center;
   height: 200px;
@@ -252,24 +241,24 @@ ul li:hover {
   padding-left: 1rem;
   padding-bottom: 10px;
   background: linear-gradient(lightblue, white);
-  cursor: pointer;  
+  cursor: pointer;
 }
 @media only screen and (max-width: 1200px) {
-  .id-card-column{
+  .id-card-column {
     width: 35%;
     min-width: 45%;
   }
-  .pet-information{
+  .pet-information {
     padding-left: 2%;
   }
 }
 @media only screen and (max-width: 820px) {
-  .id-card-column{
+  .id-card-column {
     min-width: 80%;
     align-items: center;
     max-width: 70%;
-  } 
-  .pet-information{
+  }
+  .pet-information {
     padding-left: 7%;
   }
 }
@@ -291,20 +280,17 @@ ul li:hover {
   content: "";
   display: table;
   clear: both;
-
 }
 
 .top-column {
   float: left;
   width: 50%;
-
 }
 
 .top-row:after {
   content: "";
   display: table;
   clear: both;
-
 }
 
 .zoom:hover {
@@ -317,15 +303,14 @@ ul li:hover {
   display: block;
   padding: 25px;
   height: 30rem;
-  width: 30rem
+  width: 30rem;
 }
 
- /* Testemonials  */
+/* Testemonials  */
 .home-testimonial {
   background-color: #55468d;
   /* height: 380px */
   margin-top: 35px;
-
 }
 
 .home-testimonial-bottom {
@@ -335,21 +320,20 @@ ul li:hover {
   margin-bottom: 0px;
   position: relative;
   height: 130px;
-  top: 190px
+  top: 190px;
 }
 
 .home-testimonial h3 {
   color: var(--white);
   font-size: 20px;
   font-weight: 500;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 
 .home-testimonial h2 {
-
   font-size: 38px;
   font-weight: 700;
-  background: -webkit-linear-gradient(#0096C7, #48CAE4);
+  background: -webkit-linear-gradient(#0096c7, #48cae4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -357,12 +341,11 @@ ul li:hover {
 .testimonial-inner {
   position: relative;
   top: -174px;
-
 }
 
 .testimonial-pos {
   position: relative;
-  top: 24px
+  top: 24px;
 }
 
 .testimonial-inner .tour-desc {
@@ -374,7 +357,7 @@ ul li:hover {
 .color-grey-3 {
   font-family: "Montserrat", Sans-serif;
   font-size: 14px;
-  color: #6c83a2
+  color: #6c83a2;
 }
 
 .testimonial-inner img.tm-people {
@@ -384,19 +367,19 @@ ul li:hover {
   border-radius: 50%;
   -o-object-fit: cover;
   object-fit: cover;
-  max-width: none
+  max-width: none;
 }
 
 .link-name {
   font-family: "Montserrat", Sans-serif;
   font-size: 14px;
-  color: #6c83a2
+  color: #6c83a2;
 }
 
 .link-position {
   font-family: "Montserrat", Sans-serif;
   font-size: 12px;
-  color: #6c83a2
+  color: #6c83a2;
 }
 
 @media only screen and (max-width: 780px) {
@@ -405,15 +388,32 @@ ul li:hover {
   }
 
   .column2x2 {
-    display: contents
+    display: contents;
   }
-
 }
 
-footer{
-  
+footer {
 }
 
+/*Appointments page*/
+:root {
+  --dark-body: #4d4c5a;
+  --dark-main: #141529;
+  --dark-second: #79788c;
+  --dark-hover: #323048;
+  --dark-text: #f8fbff;
+
+  --light-body: #f3f8fe;
+  --light-main: #fdfdfd;
+  --light-second: #c3c2c8;
+  --light-hover: #edf0f5;
+  --light-text: #151426;
+
+  --blue: #0000ff;
+  --white: #fff;
+
+  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
 
 /* Media Queries */
 @media only screen and (max-width: 780px) {
@@ -434,28 +434,27 @@ footer{
 }
 
 .bg-img {
-  background-image: url('../img/pawprint.jpg');
-  
+  background-image: url("../img/pawprint.jpg");
 }
 
-.pet-info-container{
+.pet-info-container {
   margin-top: 50px;
 }
 
-.pet-info-text{
+.pet-info-text {
   text-align: left;
   display: inline;
   font-size: xx-large;
 }
 
 @media only screen and (max-width: 1200px) {
-  .pet-info-text{
-    font-size:x-large;
+  .pet-info-text {
+    font-size: x-large;
   }
-  .pet-info-container{
+  .pet-info-container {
     margin-left: 100px;
   }
-  .qr-code{
+  .qr-code {
     max-width: 6em;
     max-height: 6em;
   }
@@ -470,55 +469,55 @@ footer{
 }
 
 @media only screen and (max-width: 930px) {
-  .profile-picture{
+  .profile-picture {
     max-width: 20rem;
     max-height: 20rem;
   }
 }
 
-.book-apt-button{
+.book-apt-button {
   margin-top: 1em;
-  padding:  5px;
+  padding: 5px;
   border-radius: 10%;
   cursor: pointer;
   background: linear-gradient(lightblue, white);
   border-width: 1px;
 }
 
-.qr-code{
+.qr-code {
   float: right;
   height: 10em;
   margin-right: 3em;
   margin-top: 2em;
 }
 
-.id-card-image{
+.id-card-image {
   height: 80%;
   margin-top: 17px;
   margin-left: 10px;
 }
 
-.id-card-text{
+.id-card-text {
   display: inline-block;
-  align-items:center;
+  align-items: center;
   vertical-align: top;
   margin-top: 10px;
   margin-left: 5%;
 }
 
-.id-card-number{
+.id-card-number {
   text-align: center;
   margin-right: 25px;
   background-color: lightblue;
 }
 
-.id-card-add{
+.id-card-add {
   height: 60%;
   margin-top: 40px;
   margin-left: 30px;
 }
 
-.id-card-add-text{
+.id-card-add-text {
   text-align: center;
   display: inline-block;
   vertical-align: top;
@@ -527,21 +526,21 @@ footer{
 }
 
 @media only screen and (max-width: 1325px) {
-.column{
-  height: 100%;
-  width: 100%;
-  margin-top: 20px;
-  display: inline-block;
-}
+  .column {
+    height: 100%;
+    width: 100%;
+    margin-top: 20px;
+    display: inline-block;
+  }
 
-.top-column{
-  margin: none;
-}
+  .top-column {
+    margin: none;
+  }
 
-#service-pic{
-  width: auto;
-  height: auto;
-}
+  #service-pic {
+    width: auto;
+    height: auto;
+  }
 }
 
 @media only screen and (max-width: 780px) {
@@ -550,7 +549,7 @@ footer{
   }
 
   .column2x2 {
-    display: contents
+    display: contents;
   }
 
   .top-bg-img {
@@ -559,27 +558,26 @@ footer{
     background-color: none;
   }
 
-  .main-text{
+  .main-text {
     text-align: center;
     margin-left: 150px;
     margin-right: 200px;
   }
 
-  .column{
+  .column {
     height: 100%;
     width: 100%;
     margin-top: 20px;
     display: inline-block;
   }
 
-  .top-column{
+  .top-column {
     margin: none;
   }
 
-  #service-pic{
+  #service-pic {
     display: none;
   }
-
 }
 /* Set the size of the div element that contains the map */
 #map {
