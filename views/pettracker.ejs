@@ -13,28 +13,6 @@
   <head>
     <title>Add Map</title>
 
-    <script>
-      // Initialize and add the map
-      function initMap() {
-        // The location of Uluru
-        const uluru = {
-          lat: 51.5072,
-          lng: 0.1276
-        };
-        // The map, centered at Uluru
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 4,
-          center: uluru,
-        });
-        // The marker, positioned at Uluru
-        const marker = new google.maps.Marker({
-          position: uluru,
-          map: map,
-        });
-      }
-    </script>
-  </head>
-
   <body>
     <h3>Google Tracker</h3>
     <!--The div element for the map -->
@@ -43,8 +21,52 @@
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRymAdsn9XTL0lQG3Zyvcej8PJ2jMaGzg&callback=initMap&libraries=&v=weekly"
-      async></script>
-    <div class="row" style="background-image: url('../img/pawprint-lighter.jpg');">
+     type="text/javascript"></script>
+     <style type="text/css">
+
+        #map{
+                width: 100px;
+                height: 400px;
+        }
+      </style>
+
+      <script type="text/javascript">
+    
+           x = navigator.geolocation;
+
+           x.getCurrentPosition(success, failure);
+
+           function success(position)
+
+           {
+               var myLat = position.coords.langitude;
+               var myLong = position.coords.longitude;
+
+               var coords = new google.maps.LatLng(myLat,myLong);
+
+               var mapOptions = {
+                   
+                   zoom:9,
+                   center: coords,
+                   mapTypeId: google.maps.mapTypeId.ROADMAP
+               }
+
+               var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+               var marker = new google.maps.Marker({map:map, position:coords});
+           }
+
+           function failure(){}
+
+      </script>
+    
+    </head>
+  
+    <body>
+            <div id="map"></div>
+    </body>
+
+
+      <div class="row" style="background-image: url('../img/pawprint-lighter.jpg');">
 
       <div class="column4x4">
         <div class="pet-info-container">
