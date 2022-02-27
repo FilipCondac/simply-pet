@@ -1,49 +1,50 @@
-// // A web application to provide discussion forums
-// // Import the modules we need
-// var express = require ('express')
-// var ejs = require('ejs')
-// var bodyParser= require ('body-parser')
-// const mysql = require('mysql');
+// A web application to provide discussion forums
+// Import the modules we need
+var express = require ('express')
+var ejs = require('ejs')
+var bodyParser= require ('body-parser')
+const mysql = require('mysql');
 
-// // Create the express application object
-// const app = express()
-// const port = 8000
-// app.use(bodyParser.urlencoded({ extended: true }))
+// Create the express application object
+const app = express()
+const port = 8000
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.json()) 
 
-// // Define the database connection
-// const db = mysql.createConnection ({
-//     host: 'l',
-//     user: '',
-//     password: '',
-//     database: ''
-// });
-// // Connect to the database
-// db.connect((err) => {
-//     if (err) {
-//         throw err;
-//     }
-//     console.log('Connected to database');
-// });
-// global.db = db;
+// Define the database connection
+const db = mysql.createConnection ({
+    host: '34.105.252.160',
+    user: 'fdc',
+    password: '',
+    database: 'simplypet'
+});
+// Connect to the database
+db.connect((err) => {
+    if (err) {
+        throw err;
+    }
+    console.log('Connected to database');
+});
+global.db = db;
 
-// // Set the directory where static files (css, js, etc) will be
-// app.use(express.static(__dirname + "/style"));
+// Set the directory where tatic files (css, js, etc) will be
+app.use(express.static(__dirname));
 
-// // Set the directory where Express will pick up HTML files
-// // __dirname will get the current directory
-// app.set('views', __dirname + '/views');
+// Set the directory where Express will pick up HTML files
+// __dirname will get the current directory
+app.set('views', __dirname + '/views');
 
-// // Tell Express that we want to use EJS as the templating engine
-// app.set('view engine', 'ejs');
+// Tell Express that we want to use EJS as the templating engine
+app.set('view engine', 'ejs');
 
-// // Tells Express how we should process html files
-// // We want to use EJS's rendering engine
-// app.engine('html', ejs.renderFile);
+// Tells Express how we should process html files
+// We want to use EJS's rendering engine
+app.engine('html', ejs.renderFile);
 
 
 
-// // Requires the main.js file inside the routes folder passing in the Express app and data as arguments.  All the routes will go in this file
-// require("./routes/main")();
+// Requires the main.js file inside the routes folder passing in the Express app and data as arguments.  All the routes will go in this file
+require("./routes/routes.js")(app);
 
-// // Start the web app listening
-// app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+// Start the web app listening
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
