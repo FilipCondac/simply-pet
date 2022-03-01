@@ -19,6 +19,7 @@ module.exports = function (app) {
     });
 
     app.post('/petpassport', function(req, res) {
+    
     });
 
     app.get('/pettracker', function(req, res) {
@@ -33,7 +34,7 @@ module.exports = function (app) {
     app.post('/login', function(req, res) {
         console.log(req.body);
         db.test();
-        return res.send(200)
+        return res.sendStatus(200)
     });
 
     app.get('/signup', function(req, res) {
