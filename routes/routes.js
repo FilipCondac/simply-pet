@@ -1,5 +1,5 @@
 // Route handler for forum web app
-const db = require('../util/db');
+const database = require('../util/database');
 
 module.exports = function (app) {
 
@@ -43,4 +43,7 @@ module.exports = function (app) {
 
     app.post('/signup', function(req, res) {
     });
+
+    
+    
 }
