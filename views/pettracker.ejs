@@ -1,40 +1,15 @@
 <%- include('../components/head') %>
 
 <body>
-
+  <!-- <div class = "background-div"> -->
+  <!--Top Navigator-->
   <%- include('../components/header') %>
+
 
   <!-- Page title section -->
   <div class="intro" title="Pet ">
     <h1>Pet Tracker</h1>
   </div>
-  </div>
-
-  <head>
-    <title>Add Map</title>
-
-  <body>
-    <h3>Google Tracker</h3>
-  
-    <%- include('../components/head') %>
-
-    <body>
-    
-      <%- include('../components/header') %>
-    
-      <!-- Page title section -->
-      <div class="intro" title="Pet ">
-        <h1>Pet Tracker</h1>
-      </div>
-      </div>
-    
-      <head>
-        <title>Add Map</title>
-    
-      <body>
-        <h3>Google Tracker</h3>
-    
-    <html>
       
     <head>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRymAdsn9XTL0lQG3Zyvcej8PJ2jMaGzg&callback=initMap"
@@ -79,13 +54,12 @@
       </script>
     
     </head>
+    <div id="map"></div>
     
-    <body>
-        <div id="map"></div>
-    
-    
-    </body>
         <%- include('../components/scriptsEnd') %>
+        <%- include('../components/footer')  %>
+    </body>
+        
 
   </html>
 
