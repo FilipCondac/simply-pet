@@ -1,15 +1,21 @@
-<%- include('../components/head') %>
-
+<html>
 <body>
   <!-- <div class = "background-div"> -->
+  <%- include('../components/head') %>
   <!--Top Navigator-->
   <%- include('../components/header') %>
 
 
+
   <!-- Page title section -->
-  <div class="intro" title="Pet ">
+  <div class="intro" title="Pet" style="background-image: url('../img/pawprint-lighter.jpg');">
     <h1>Pet Tracker</h1>
   </div>
+
+  <div style="background-image: url('../img/pawprint-lighter.jpg');">
+    
+   
+ 
       
     <head>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRymAdsn9XTL0lQG3Zyvcej8PJ2jMaGzg&callback=initMap"
@@ -34,7 +40,7 @@
             var myLat = position.coords.latitude;
             var myLong = position.coords.longitude;
     
-            //alert(myLat);
+            alert(myLat);
     
             var coords = new google.maps.LatLng(myLat,myLong);
     
@@ -54,12 +60,24 @@
       </script>
     
     </head>
+    
     <div id="map"></div>
+
+    <label for="site-search">Chip ID:</label>
+    <input type="search" id="site-search" name="q"
+       aria-label="Search through site content">
+
+    <button>Search</button>
     
         <%- include('../components/scriptsEnd') %>
         <%- include('../components/footer')  %>
-    </body>
+    
         
-
+     </div>
+    </body>
   </html>
 
+<!--refrences:-->
+
+<!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/search-->
+<!--https://www.youtube.com/watch?v=xJubVipcHrM-->

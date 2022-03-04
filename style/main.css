@@ -590,6 +590,7 @@ ul li:hover {
 
 .bg-img {
   background-image: url("../img/pawprint.jpg");
+  background-size: 500px 500px;
 }
 
 .pet-info-container {
@@ -749,10 +750,6 @@ ul li:hover {
   }
 }
 
-.tracker {
-  background-image: url("../img/pawprint.jpg");
-}
-
 .footer {
   background: -webkit-linear-gradient(#0096c7, #48cae4);
   color: #ffffff;
@@ -890,4 +887,13 @@ ul li:hover {
 }
 .calendar-days div:hover span:nth-child(4) {
   transition-delay: 0.6s;
+}
+label {
+  display: block;
+  font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+  margin: .4rem 0;
 }
