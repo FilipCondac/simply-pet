@@ -1,88 +1,65 @@
 <%- include('../components/head') %>
 
 <body>
-
+  <!-- <div class = "background-div"> -->
+  <!--Top Navigator-->
   <%- include('../components/header') %>
+
 
   <!-- Page title section -->
   <div class="intro" title="Pet ">
     <h1>Pet Tracker</h1>
   </div>
-  </div>
-
-  <head>
-    <title>Add Map</title>
-
-  <body>
-    <h3>Google Tracker</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
-
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRymAdsn9XTL0lQG3Zyvcej8PJ2jMaGzg&callback=initMap&libraries=&v=weekly"
-      type="text/javascript"></script>
-    <style type="text/css">
-      #map {
-        width: 100px;
-        height: 400px;
-      }
-    </style>
-
-    <script type="text/javascript">
-      x = navigator.geolocation;
-
-      x.getCurrentPosition(success, failure);
-
-      function success(position)
-
-      {
-        var myLat = position.coords.langitude;
-        var myLong = position.coords.longitude;
-
-        var coords = new google.maps.LatLng(myLat, myLong);
-
-        var mapOptions = {
-
-          zoom: 9,
-          center: coords,
-          mapTypeId: google.maps.mapTypeId.ROADMAP
-        }
-
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-        var marker = new google.maps.Marker({
-          map: map,
-          position: coords
-        });
-      }
-
-      function failure() {}
-    </script>
-
+      
+    <head>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRymAdsn9XTL0lQG3Zyvcej8PJ2jMaGzg&callback=initMap"
+        type="text/javascript"></script>
+    
+        <style type="text/css">
+           #map {
+            width: 400px;
+            height: 400px;
+         }
+      </style>
+    
+      <script type="text/javascript">
+    
+          x = navigator.geolocation;
+    
+          x.getCurrentPosition(success, failure);
+    
+          function success(position)
+    
+          {
+            var myLat = position.coords.latitude;
+            var myLong = position.coords.longitude;
+    
+            //alert(myLat);
+    
+            var coords = new google.maps.LatLng(myLat,myLong);
+    
+            var mapOptions = {
+    
+              zoom:11,
+              center: coords,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+    
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            var marker = new google.maps.Marker({map:map, position:coords});	
+          }
+    
+          function failure(){ }
+    
+      </script>
+    
     </head>
-
-    <body>
-      <div id="map"></div>
-    </body>
-
-
-    <div class="row" style="background-image: url('../img/pawprint-lighter.jpg');">
-
-      <div class="column4x4">
-        <div class="pet-info-container">
-
-          <div class="row">
-            <h2 class="pet-info-text">Microchip ID: </h2>
-            <input type="number" id="micid" name="micid">
-
-            <div class="row">
-              <button class="book-apt-button">Search</button>
-            </div>
-          </div>
-        </div>
-
+    <div id="map"></div>
+    
         <%- include('../components/scriptsEnd') %>
         <%- include('../components/footer')  %>
-  </body>
+    </body>
+        
 
   </html>
+
