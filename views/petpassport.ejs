@@ -53,46 +53,48 @@
       </div>
       <div class="column2x2">
         <div class="pet-info-container">
-          <h2 class="pet-info-text">Pet Name: </h2>
-          <p class="pet-info-text"> Jeff Jones</p>
+          <div class="row">
+            <h2 class="pet-info-text">Pet Name: </h2>
+            <p class="pet-info-text-p"> Jeff Jones</p>
+          </div>
           <div class="row">
             <h2 class="pet-info-text">Birthday: </h2>
-            <p class="pet-info-text"> 16.12.2016</p>
+            <p class="pet-info-text-p"> 16.12.2016</p>
           </div>
           <div class="row">
             <h2 class="pet-info-text">Age: </h2>
-            <p class="pet-info-text"> 5</p>
+            <p class="pet-info-text-p"> 5</p>
           </div>
           <div class="row">
             <h2 class="pet-info-text">Breed: </h2>
-            <p class="pet-info-text"> Golden Retriever</p>
+            <p class="pet-info-text-p"> Golden Retriever</p>
           </div>
           <div class="row">
             <h2 class="pet-info-text">Vaccination Status: </h2>
-            <p class="pet-info-text" style="color: green"> Up to date</p>
+            <p class="pet-info-text-p" style="color: green"> Up to date</p>
           </div>
           <div class="row">
             <h2 class="pet-info-text">Last Appointment Date: </h2>
-            <p class="pet-info-text"> 08.11.2020</p>
+            <p class="pet-info-text-p"> 08.11.2020</p>
           </div>
           <div class="row">
             <h2 class="pet-info-text">Microchip ID: </h2>
-            <p class="pet-info-text"> 123456789123456</p>
+            <p class="pet-info-text-p"> 123456789123456</p>
           </div>
           <div class="row">
             <h2 class="pet-info-text">Vet Practice: </h2>
-            <p class="pet-info-text"> Sunny Banks Veterinary Practice</p>
+            <p class="pet-info-text-p"> Sunny Banks Veterinary Practice</p>
           </div>
           <div class="row">
             <h2 class="pet-info-text">Vet Name: </h2>
-            <p class="pet-info-text"> Mary Smith</p>
+            <p class="pet-info-text-p"> Mary Smith</p>
           </div>
           <div class="row">
             <button class="book-apt-button">Book Appointment</button>
           </div>
         </div>
       </div>
-      <div style="width:auto">
+      <div style="width:auto;">
         <img src="../img/qr-code.png" alt="QR Code" class="qr-code">
       </div>
     </div>
@@ -105,8 +107,10 @@
       </div>
       <div class="column2x2">
         <div class="pet-info-container">
-          <h2 class="pet-info-text">Pet Name: </h2>
-          <p class="pet-info-text"> Kitty Smith</p>
+          <div class="row">
+            <h2 class="pet-info-text">Pet Name: </h2>
+            <p class="pet-info-text"> Kitty Smith</p>
+          </div>
           <div class="row">
             <h2 class="pet-info-text">Birthday: </h2>
             <p class="pet-info-text"> 06.08.2020</p>
@@ -154,19 +158,21 @@
   <div id="section3" style="display:none; background-image: url('../img/pawprint-lighter.jpg');">
     <div class="row" style="background-image: url('../img/pawprint-lighter.jpg');">
       <div class="column2x2">
-        <img src="../img/addimage.png" alt="add pet picture" class="add-profile-picture">
+        <img src="../img/addimage.png" alt="add pet picture" class="profile-picture" style="margin-left: 1em; max-width: 85%">
       </div>
       <div class="column2x2">
         <div class="pet-info-container">
-          <h2 class="pet-info-text">Pet Name: </h2>
-          <input type="text" id="fname" name="fname">
+          <div class="row">
+            <h2 class="pet-info-text">Pet Name: </h2>
+            <input type="text" id="fname" name="fname" class="new-pet-input">
+          </div>
           <div class="row">
             <h2 class="pet-info-text">Birthday: </h2>
-            <input type="date" id="bday" name="bday">
+            <input type="date" id="bday" name="bday" style="margin-bottom: 5px; margin-left: 20px;">
           </div>
           <div class="row">
             <h2 class="pet-info-text">Age: </h2>
-            <input type="number" id="age" name="age" style="width: 15%">
+            <input type="number" id="age" name="age" style="margin-bottom: 5px; width: 15%; margin-left: 20px;">
           </div>
           <div class="row">
             <h2 class="pet-info-text">Breed: </h2>
@@ -174,18 +180,18 @@
           </div>
           <div class="row">
             <h2 class="pet-info-text">Vaccination Status: </h2>
-            <select id="vacstat" name="vacstat">
+            <select id="vacstat" name="vacstat" style="margin-bottom: 5px; margin-left: 20px;">
               <option value="australia">Up to date</option>
               <option value="canada">Due for vaccine</option>
             </select>
           </div>
           <div class="row">
             <h2 class="pet-info-text">Last Appointment Date: </h2>
-            <input type="date" id="lastaptdat" name="lastaptdat">
+            <input type="date" id="lastaptdat" name="lastaptdat" style="margin-bottom: 5px; margin-left: 20px;">
           </div>
           <div class="row">
             <h2 class="pet-info-text">Microchip ID: </h2>
-            <input type="number" id="micid" name="micid">
+            <input type="number" id="micid" name="micid" style="margin-bottom: 5px; margin-left: 20px;">
           </div>
           <div class="row">
             <h2 class="pet-info-text">Vet Practice: </h2>
