@@ -233,13 +233,13 @@ ul li:hover {
   float: left;
   width: 30%;
   align-items: center;
-  height: 200px;
+  height: 220px;
   box-shadow: 10px 10px 10px -5px black;
   border-radius: 10%;
   margin: 20px;
   flex: 25%;
   padding-left: 1rem;
-  padding-bottom: 10px;
+  padding-bottom: 40px;
   background: linear-gradient(lightblue, white);
   cursor: pointer;
 }
@@ -248,6 +248,7 @@ ul li:hover {
   .id-card-column {
     width: 35%;
     min-width: 45%;
+    max-width: 30%;
   }
 
   .pet-information {
@@ -521,7 +522,7 @@ ul li:hover {
 }
 
 .id-card-image {
-  height: 80%;
+  height: 85%;
   margin-top: 17px;
   margin-left: 10px;
 }
@@ -530,7 +531,6 @@ ul li:hover {
   display: inline-block;
   align-items: center;
   vertical-align: top;
-  margin-top: 10px;
   margin-left: 5%;
 }
 
