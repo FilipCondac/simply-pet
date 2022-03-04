@@ -474,6 +474,7 @@ ul li:hover {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   font-weight: 600;
+  height: 50px;
 }
 
 .calendar-week-day div {
@@ -543,6 +544,32 @@ ul li:hover {
   margin-right: 10px;
   color: var(--color-txt);
 }
+
+.dark-mode-switch {
+  position: relative;
+  width: 48px;
+  height: 25px;
+  border-radius: 14px;
+  background-color: var(--bg-second);
+  cursor: pointer;
+}
+
+.dark-mode-switch-ident {
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background-color: var(--bg-main);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 0.2s ease-in-out;
+} /*problem w dark mode toggle*/
+
+.dark .dark-mode-switch .dark-mode-switch-ident {
+  top: 2px;
+  left: calc(2px + 50%);
+}
+
 /* Media Queries */
 @media only screen and (max-width: 780px) {
   header nav {
@@ -802,4 +829,65 @@ ul li:hover {
 .login form input[type="submit"]:hover {
   background-color: #2868c7;
   transition: background-color 0.2s;
+}
+
+.calendar-days div span {
+  position: absolute;
+}
+
+.calendar-days div:hover span {
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+.calendar-days div span:nth-child(1),
+.calendar-days div span:nth-child(3) {
+  width: 2px;
+  height: 0;
+  background-color: black;
+}
+
+.calendar-days div:hover span:nth-child(1),
+.calendar-days div:hover span:nth-child(3) {
+  height: 100%;
+}
+
+.calendar-days div span:nth-child(1) {
+  bottom: 0;
+  left: 0;
+}
+
+.calendar-days div span:nth-child(3) {
+  top: 0;
+  right: 0;
+}
+
+.calendar-days div span:nth-child(2),
+.calendar-days div span:nth-child(4) {
+  width: 0;
+  height: 2px;
+  background-color: black;
+}
+
+.calendar-days div:hover span:nth-child(2),
+.calendar-days div:hover span:nth-child(4) {
+  width: 100%;
+}
+
+.calendar-days div span:nth-child(2) {
+  top: 0;
+  left: 0;
+}
+.calendar-days div span:nth-child(4) {
+  bottom: 0;
+  right: 0;
+}
+
+.calendar-days div:hover span:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.calendar-days div:hover span:nth-child(3) {
+  transition-delay: 0.4s;
+}
+.calendar-days div:hover span:nth-child(4) {
+  transition-delay: 0.6s;
 }
