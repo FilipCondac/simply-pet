@@ -638,7 +638,7 @@ input[type=text] {
     margin-top: 25px;
     padding-top: 15px;
     padding-bottom: 10px;
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -659,7 +659,7 @@ input[type=text] {
   font-size: .8em;
   padding-top: 15px;
   padding-bottom: 10px;
-  position: static;
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
