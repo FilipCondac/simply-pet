@@ -43,7 +43,11 @@ module.exports = function (app) {
         return res.render('signup.ejs');
     });
 
-    app.post('/signup', function(request, result) {
+    app.post('/signup', (request, response) => {
+
+    });
+
+    app.post('/newAuth', (request, response) => {
         let username = request.body.username;
         let password = request.body.password;
         let email = request.body.email;
@@ -54,9 +58,9 @@ module.exports = function (app) {
                 if(!userExists){
                     database.createUser(email,username,password);
                 }else{
-                    response.redirect('/signup');
+                    response.redirect('/home');
                 }
-
+                return response.redirect('/');
             }).catch(err => {
                 console.error(err);
                 return response.sendStatus(200);
