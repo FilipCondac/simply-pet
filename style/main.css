@@ -1044,14 +1044,19 @@ label {
 }
 
 #map {
-  width: 600px;
-  height: 480px;
+  width: 800px;
+  height: 510px;
   text-align: center;
   position: relative;
   overflow: hidden; 
   padding-bottom: 20.58823%;
+  margin-left: 350px;
 }
 #map_container {
 	position: relative;
 	padding-top: 0%;
+}
+#site-search{
+  margin-left: 490px;
+  text-align: center;
 }
