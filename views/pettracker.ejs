@@ -21,13 +21,6 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRymAdsn9XTL0lQG3Zyvcej8PJ2jMaGzg&callback=initMap"
         type="text/javascript"></script>
     
-        <style type="text/css">
-           #map {
-            width: 400px;
-            height: 400px;
-         }
-      </style>
-    
       <script type="text/javascript">
     
           x = navigator.geolocation;
@@ -60,13 +53,17 @@
       </script>
     
     </head>
+    <div id="map_container">
+      <div id="map"></div>
+  </div>
     
-    <div id="map"></div>
 
     <label for="site-search">Chip ID:</label>
     <input type="search" id="site-search" name="q"
        aria-label="Search through site content">
 
+    <div style="background-image: url('../img/pawprint-lighter.jpg');">
+    </div>
     <button>Search</button>
     
         <%- include('../components/scriptsEnd') %>
@@ -81,3 +78,4 @@
 
 <!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/search-->
 <!--https://www.youtube.com/watch?v=xJubVipcHrM-->
+<!--https://developers.google.com/maps-->

@@ -1042,3 +1042,16 @@ input,
 label {
   margin: .4rem 0;
 }
+
+#map {
+  width: 600px;
+  height: 480px;
+  text-align: center;
+  position: relative;
+  overflow: hidden; 
+  padding-bottom: 20.58823%;
+}
+#map_container {
+	position: relative;
+	padding-top: 0%;
+}
