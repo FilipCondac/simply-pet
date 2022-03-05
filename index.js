@@ -6,7 +6,7 @@ var bodyParser= require ('body-parser')
 const mysql = require('mysql');
 const session = require('express-session');
 const path = require('path');
-const { arrayBuffer } = require('stream/consumers');
+// const { arrayBuffer } = require('stream/consumers');
 
 // Define the database connection
 const db = mysql.createConnection ({
