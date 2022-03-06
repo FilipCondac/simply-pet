@@ -133,6 +133,11 @@ module.exports = (app) => {
         }
     });
 
+    app.get('/logout',(req,res)=>{
+        req.session.destroy(function (err) {
+          res.redirect('/'); //Inside a callback… bulletproof!
+         });
+      })
 
 
 }
