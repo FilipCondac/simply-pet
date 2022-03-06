@@ -10,10 +10,12 @@
       <li><a href="/petpassport">Pet Passport</a></li>
       <li><a href="/appointments">Appointments</a></li>
       <li><a href="/pettracker">Pet Tracker</a></li>
+
       <% if(!loggedin){ %>
       <li id="login"><a href="/login">Login</a></li>
       <li id="signup"><a href="/signup">Signup</a></li>
       <% } %>
+
       <% if(loggedin){ %>
       <li id="login">Profile</a></li>
       <li id="signup"><a href="/logout" style="color: red;">Sign Out</a></li>

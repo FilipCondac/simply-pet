@@ -102,7 +102,7 @@ module.exports = (app) => {
         if(req.session.loggedin){
             return res.redirect('/');
         }else{
-            return res.render('signup.ejs');
+            return res.render('signup.ejs' , {loginStatus: false});
         }
         
     });
