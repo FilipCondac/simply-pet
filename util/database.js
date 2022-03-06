@@ -4,21 +4,7 @@ const {
 const e = require("express");
 
 module.exports = {
-  createUser: () => {
-    return 'Jim';
-  },
-
-  getUserByID: (id) => {
-    db.query("SELECT * FROM Users WHERE id = " + id, (err, result, fields) => {
-      if (err) throw err;
-      console.log(result);
-    });
-  },
-
-  functionName: (user, stuff) => {
-
-  },
-
+  
   checkIfUserExists: (email, password) => {
     return new Promise((resolve, reject) => {
       db.query('SELECT * FROM accounts WHERE email = ? AND password = ?', [email, password], (error, results) => {
@@ -40,7 +26,7 @@ module.exports = {
         if (error) {
           return reject(error)
         }
-        return resolve(false);
+        return resolve(true);
       });
      
     })

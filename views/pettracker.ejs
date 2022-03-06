@@ -1,9 +1,11 @@
 <html>
+
 <body>
   <!-- <div class = "background-div"> -->
   <%- include('../components/head') %>
   <!--Top Navigator-->
-  <%- include('../components/header') %>
+  <% let sessionStatus = loginStatus %>
+  <%- include('../components/header', {loggedin: sessionStatus})%>
 
 
 
@@ -13,65 +15,66 @@
   </div>
 
   <div style="background-image: url('../img/pawprint-lighter.jpg');">
-    
-   
- 
-      
+
+
+
+
     <head>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRymAdsn9XTL0lQG3Zyvcej8PJ2jMaGzg&callback=initMap"
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRymAdsn9XTL0lQG3Zyvcej8PJ2jMaGzg&callback=initMap"
         type="text/javascript"></script>
-    
+
       <script type="text/javascript">
-    
-          x = navigator.geolocation;
-    
-          x.getCurrentPosition(success, failure);
-    
-          function success(position)
-    
-          {
-            var myLat = position.coords.latitude;
-            var myLong = position.coords.longitude;
-    
-            alert(myLat);
-    
-            var coords = new google.maps.LatLng(myLat,myLong);
-    
-            var mapOptions = {
-    
-              zoom:11,
-              center: coords,
-              mapTypeId: google.maps.MapTypeId.ROADMAP
-            }
-    
-            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-            var marker = new google.maps.Marker({map:map, position:coords});	
+        x = navigator.geolocation;
+
+        x.getCurrentPosition(success, failure);
+
+        function success(position)
+
+        {
+          var myLat = position.coords.latitude;
+          var myLong = position.coords.longitude;
+
+          alert(myLat);
+
+          var coords = new google.maps.LatLng(myLat, myLong);
+
+          var mapOptions = {
+
+            zoom: 11,
+            center: coords,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
           }
-    
-          function failure(){ }
-    
+
+          var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+          var marker = new google.maps.Marker({
+            map: map,
+            position: coords
+          });
+        }
+
+        function failure() {}
       </script>
-    
+
     </head>
     <div id="map_container">
       <div id="map"></div>
-  </div>
-    
-    
+    </div>
+
+
     <label for="site-search">Chip ID:</label>
-    <input type="search" id="site-search" name="q"
-       aria-label="Search through site content">
+    <input type="search" id="site-search" name="q" aria-label="Search through site content">
     <button>Search</button>
-     
-    
-    
-        <%- include('../components/scriptsEnd') %>
-        <%- include('../components/footer')  %>
-    
-        
-     </div>
-    </body>
-  </html>
+
+
+
+    <%- include('../components/scriptsEnd') %>
+    <%- include('../components/footer')  %>
+
+
+  </div>
+</body>
+
+</html>
 
 <!--refrences:-->
 
