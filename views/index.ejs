@@ -2,7 +2,8 @@
 
 <body>
   <!--Top Navigator-->
-  <%- include('../components/header') %>
+  <% let sessionStatus = loginStatus %>
+  <%- include('../components/header', {loggedin: sessionStatus})%>
 
 
   <!-- Contents of the page -->

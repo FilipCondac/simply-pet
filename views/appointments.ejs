@@ -2,10 +2,8 @@
 
 <body>
   <!--Top Navigator-->
-  <%- include('../components/header') %>
-
-
-
+  <% let sessionStatus = loginStatus %>
+  <%- include('../components/header', {loggedin: sessionStatus})%>
 
   <div class="calendar">
     <div class="calendar-header">

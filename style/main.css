@@ -447,7 +447,6 @@ body {
   place-items: left;
   padding-top: 0px;
   padding-left: 0px;
-
   background-color: var(--bg-body);
 }
 
@@ -967,7 +966,8 @@ input[type=text] {
 }
 
 .login form input[type="password"],
-.login form input[type="text"] {
+.login form input[type="text"],
+.login form input[type="email"] {
   width: 310px;
   height: 50px;
   border: 1px solid #dee0e4;
@@ -1064,4 +1064,22 @@ label {
 input,
 label {
   margin: .4rem 0;
+}
+
+#map {
+  width: 800px;
+  height: 510px;
+  text-align: center;
+  position: relative;
+  overflow: hidden; 
+  padding-bottom: 20.58823%;
+  margin-left: 350px;
+}
+#map_container {
+	position: relative;
+	padding-top: 0%;
+}
+#site-search{
+  margin-left: 490px;
+  text-align: center;
 }

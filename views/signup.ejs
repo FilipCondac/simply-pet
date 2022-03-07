@@ -2,19 +2,23 @@
 
 <body>
     <!--Top Navigator-->
-    <%- include('../components/header') %>
+    <% let sessionStatus = loginStatus %>
+    <%- include('../components/header', {loggedin: sessionStatus})%>
+
     <div class="login">
-        <h1>Login</h1>
-        <form action="/signup" method="post">
+        <h1>Sign-Up</h1>
+        <form action="/newAuth" method="post">
             <label for="username">
                 <!-- font awesome icon -->
                 <i class="fas fa-user"></i>
             </label>
             <input type="text" name="username" placeholder="Username" id="username" required>
+
             <label for="email">
                 <i class="fas fa-lock"></i>
             </label>
-            <input type="email" name="email" placeholder="email" id="email" required>
+            <input type="email" name="email" placeholder="E-Mail" id="email" required>
+
             <label for="password">
                 <i class="fas fa-lock"></i>
             </label>
