@@ -31,6 +31,18 @@ module.exports = {
      
     })
     
-  }
+  },
+
+  createPet: (petName, petAge, petType, petBreed, petVaccinated , petLastApp, petVetPractice, petVetName, email) => {
+    return new Promise((resolve, reject) => {
+      db.query('INSERT INTO pets (petName, petAge, petType, petBreed, petVaccinated , petLastApp, petVetPractice, petVetName, email) VALUES (?,?,?,?,?,?,?,?,?)', 
+      [petName, petAge, petType, petBreed, petVaccinated , petLastApp, petVetPractice, petVetName, email], (error, results)=>{
+        if (error) {
+          return reject(error);
+        }
+        return resolve(true);
+      });
+    })
+  },
 
 };
