@@ -154,59 +154,61 @@
   </div>
   </div>
   </div>
-  <div id="section3" style="display:none; background-image: url('../img/pawprint-lighter.jpg');">
-    <div class="row" style="background-image: url('../img/pawprint-lighter.jpg');">
-      <div class="column2x2">
-        <img src="../img/addimage.png" alt="add pet picture" class="add-profile-picture">
-      </div>
-      <div class="column2x2">
-        <div class="pet-info-container">
-          <h2 class="pet-info-text">Pet Name: </h2>
-          <input type="text" id="fname" name="fname">
-          <div class="row">
-            <h2 class="pet-info-text">Birthday: </h2>
-            <input type="date" id="bday" name="bday">
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Age: </h2>
-            <input type="number" id="age" name="age" style="width: 15%">
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Breed: </h2>
-            <input type="text" id="breed" name="breed">
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Vaccination Status: </h2>
-            <select id="vacstat" name="vacstat">
-              <option value="australia">Up to date</option>
-              <option value="canada">Due for vaccine</option>
-            </select>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Last Appointment Date: </h2>
-            <input type="date" id="lastaptdat" name="lastaptdat">
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Microchip ID: </h2>
-            <input type="number" id="micid" name="micid">
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Vet Practice: </h2>
-            <input type="text" id="vetaddr" name="vetaddr">
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Vet Name: </h2>
-            <input type="text" id="vetnam" name="vetnam">
-          </div>
-          <div class="row">
-            <button class="book-apt-button">Submit</button>
+  <form action="/addPet" method="post">
+    <div id="section3" style="display:none; background-image: url('../img/pawprint-lighter.jpg');">
+      <div class="row" style="background-image: url('../img/pawprint-lighter.jpg');">
+        <div class="column2x2">
+          <img src="../img/addimage.png" alt="add pet picture" class="add-profile-picture">
+        </div>
+        <div class="column2x2">
+          <div class="pet-info-container">
+            <h2 class="pet-info-text">Pet Name: </h2>
+            <input type="text" id="petname" name="petname">
+            <div class="row">
+              <h2 class="pet-info-text">Age: </h2>
+              <input type="number" id="petage" name="petage" style="width: 15%">
+            </div>
+            <div class="row">
+              <h2 class="pet-info-text">Pet Type: </h2>
+              <input type="text" id="pettype" name="pettype">
+            </div>
+            <div class="row">
+              <h2 class="pet-info-text">Breed: </h2>
+              <input type="text" id="petbreed" name="petbreed">
+            </div>
+            <div class="row">
+              <h2 class="pet-info-text">Vaccination Status: </h2>
+              <select id="vacstat" name="vacstat">
+                <option value="true">Up to date</option>
+                <option value="false">Due for vaccine</option>
+              </select>
+            </div>
+            <div class="row">
+              <h2 class="pet-info-text">Last Appointment Date: </h2>
+              <input type="date" id="lastaptdat" name="lastaptdat">
+            </div>
+            <div class="row">
+              <h2 class="pet-info-text">Microchip ID: </h2>
+              <input type="number" id="petmicid" name="petmicid">
+            </div>
+            <div class="row">
+              <h2 class="pet-info-text">Vet Practice: </h2>
+              <input type="text" id="petvet" name="petvet">
+            </div>
+            <div class="row">
+              <h2 class="pet-info-text">Vet Name: </h2>
+              <input type="text" id="petvetname" name="petvetname">
+            </div>
+            <div class="row">
+              <input type="submit" value="Submit">
+            </div>
           </div>
         </div>
-      </div>
-      <div style="width:auto">
-        <img src="../img/generateqr.svg" alt="QR Code" class="qr-code">
-      </div>
-    </div>
+  </form>
+  <div style="width:auto">
+    <img src="../img/generateqr.svg" alt="QR Code" class="qr-code">
+  </div>
+  </div>
   </div>
   </div>
   </div>
@@ -214,7 +216,7 @@
 
 
   <%- include('../components/scriptsEnd') %>
-  <%- include('../components/footer')  %>
+  <!-- <%- include('../components/footer')  %> -->
 </body>
 
 </html>

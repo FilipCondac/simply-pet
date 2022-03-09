@@ -75,6 +75,33 @@ ul li:hover {
   transition: 0.3s;
 }
 
+#profile,
+#signout {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#profile {
+  border: 1px solid #0096c7;
+
+}
+
+#signout {
+  border: 1px solid #0096c7;
+}
+
+#signout a {
+  color: red;
+}
+
+#profile a {
+  background: -webkit-linear-gradient(#0096c7, #48cae4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
 #login,
 #signup {
   border-radius: 5px;
@@ -82,19 +109,24 @@ ul li:hover {
 }
 
 #login {
-  border: 1px solid #00a6ff;
+  border: 1px solid #0096c7;
+
 }
 
 #signup {
-  border: 1px solid #00a6ff;
+  border: 1px solid #0096c7;
 }
 
 #signup a {
-  color: #00a6ff;
+  background: -webkit-linear-gradient(#0096c7, #48cae4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #login a {
-  color: #00a6ff;
+  background: -webkit-linear-gradient(#0096c7, #48cae4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #hamburger-icon {
@@ -823,6 +855,11 @@ body {
   vertical-align: top;
   margin-top: 90px;
   margin-left: 10%;
+}
+
+.add-profile-picture {
+  width: 10rem;
+  height: auto;
 }
 
 @media only screen and (max-width: 1325px) {
