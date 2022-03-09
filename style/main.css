@@ -640,6 +640,7 @@ ul li:hover {
   cursor: pointer;
   background: linear-gradient(lightblue, white);
   border-width: 1px;
+  margin-bottom: 2em;
 }
 
 .qr-code {
