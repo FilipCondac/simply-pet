@@ -597,15 +597,37 @@ ul li:hover {
   margin-top: 50px;
 }
 
+@media only screen and (max-width: 687px){
+  .pet-info-container {
+    margin-left: 200px;
+  }
+}
+
 .pet-info-text {
   text-align: left;
   display: inline;
   font-size: xx-large;
 }
 
+.pet-info-text-p {
+  text-align: left;
+  display: inline;
+  font-size: x-large;
+  padding-top: 4px;
+  padding-left: 15px;
+}
+
 @media only screen and (max-width: 1200px) {
   .pet-info-text {
     font-size: x-large;
+  }
+
+  .pet-info-text-p {
+    text-align: left;
+    display: inline;
+    font-size: large;
+    padding-top: 2px;
+    padding-left: 15px;
   }
 
   .pet-info-container {
