@@ -326,6 +326,7 @@ ul li:hover {
   position: relative;
   height: 130px;
   top: 190px;
+  display: inline;
 }
 
 .home-testimonial h3 {
@@ -891,7 +892,7 @@ label {
 /*footer section*/
 .site-footer
 {
-  background-color: #55468d;
+  background: linear-gradient(#0096c7, #55468d);
   padding:45px 0 20px;
   font-size:15px;
   line-height:24px;
