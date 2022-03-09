@@ -1085,7 +1085,7 @@ label {
 
 #map {
   width: 800px;
-  height: 510px;
+  height: 540px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1099,6 +1099,6 @@ label {
 }
 
 #site-search {
-  margin-left: 490px;
+  margin-left: 630px;
   text-align: center;
 }
