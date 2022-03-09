@@ -26,9 +26,12 @@ header {
 
 #brand {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 22px;
   display: flex;
   align-items: center;
+  background: -webkit-linear-gradient(#0096c7, #48cae4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .logo {
@@ -47,7 +50,7 @@ header {
 }
 
 .brand-h1 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 ul {
@@ -1048,15 +1051,17 @@ label {
   height: 510px;
   text-align: center;
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
   padding-bottom: 20.58823%;
   margin-left: 350px;
 }
+
 #map_container {
-	position: relative;
-	padding-top: 0%;
+  position: relative;
+  padding-top: 0%;
 }
-#site-search{
+
+#site-search {
   margin-left: 490px;
   text-align: center;
 }
