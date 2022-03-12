@@ -175,12 +175,7 @@ app.post('/addPet', (req, res) => {
     let petAge = req.body.petage;
     let petType = req.body.pettype;
     let petBreed = req.body.petbreed;
-    let petVaccinated;
-    if (req.body.vacstat == "true") {
-        petVaccinated = 1;
-    }else if(req.body.vacstat == "false"){
-        petVaccinated = 0;
-    }
+    let petVaccinated = req.body.vacstat;
     let petLastApp = req.body.lastaptdate;
     let petVetPractice = req.body.petvet;
     let petVetName = req.body.petvetname;
