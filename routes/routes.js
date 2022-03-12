@@ -67,6 +67,17 @@ app.get('/pettracker', (req, res) => {
 
 });
 
+app.get('/about_us', (req, res) => {
+    if (req.session.loggedin) {
+        return res.render('about_us.ejs', {
+            loginStatus: true
+        });
+    } else {
+        res.redirect('/login');
+    }
+
+});
+
 //Login Page
 app.get('/login', (req, res) => {
     if (req.session.loggedin) {
