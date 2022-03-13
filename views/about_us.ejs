@@ -6,11 +6,26 @@
   <% let sessionStatus = loginStatus %>
   <%- include('../components/header', {loggedin: sessionStatus})%>
 
-  <div class="footer">
-    <ul class="footer-ul">
-        <li>2022 Simply Pet, Goldsmiths UOL, CSY2.</li>
-        <li>About us</li>        
-    </ul>
-</div>
+  <div class="top-row main-content">
+
+    <div class="top-column main-text" alt="Intro to simply pet. Main banner with information">
+      <h2 style="font-size:4rem"> About Us <h2>
+          
+          Simply Pet connects pet owners to thousands of licenced veterinary surgeons & nurses ready to provide the best
+          online vet services through video chat appointments 24/7.
+
+          </p>
+        </div>
+        <div class="top-column">
+          <span class="top-bg-img-logo"></span>
+          <!-- <img id="slide" src="none" class="slidePic" alt="Social media logo Image slide"> -->
+        </div>
+    
+      </div>
+  
+
+  
+  <%- include('../components/scriptsEnd') %>
+  <%- include('../components/footer')  %>
 
 </html>
