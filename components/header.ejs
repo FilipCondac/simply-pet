@@ -1,15 +1,28 @@
 <header>
-  <div id="brand"><img src="../img/logo.svg" class="logo">
-    <h1 class="brand-h1">Simply Pet</h1>
+  <div id="brand"><img src="../img/logo.svg" class="logo" li><a href="/">Simply Pet</a></li>
   </div>
   <nav>
+
+
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/petpassport">Pet Passport</a></li>
       <li><a href="/appointments">Appointments</a></li>
       <li><a href="/pettracker">Pet Tracker</a></li>
+      <li><a href="/about_us">About Us</a></li>
+
+      <% if(!loggedin){ %>
       <li id="login"><a href="/login">Login</a></li>
       <li id="signup"><a href="/signup">Signup</a></li>
+      <% } %>
+
+      <% if(loggedin){ %>
+      <li id="profile">Profile</a></li>
+      <li id="signout"><a href="/logout">Sign Out</a></li>
+      <li></li>
+      <% } %>
+
+
     </ul>
   </nav>
   <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
