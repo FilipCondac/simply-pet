@@ -8,7 +8,7 @@ function show(id) {
   for(var i = 0; i < divs.length; i++){
     if(id == divs[i]){
       document.getElementById(divs[i]).style.display="block"
-      document.getElementById(divs[i]).style.height="400px"
+      document.getElementById(divs[i]).style.height="auto"
     }else{
       document.getElementById(divs[i]).style.display="none"
     }
