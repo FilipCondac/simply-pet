@@ -17,32 +17,22 @@
     <h1 style="font-size: x-large; color: white; margin-top:5px; margin-left: 10px;">Select your pet to view their
       profile:</h1>
     <div class="row">
-      <div class="id-card-column" onclick="show('section1')">
+      <% let j = 0; %>
+      <% for(let i = 0; i < petResults.length; i++){ %>
+      <div id='<%=i%>' class="id-card-column" onclick="show('section1'); j = this.id;">
         <div class="id-card-image">
           <img src="../img/dogprofilepicture.jpg" alt="dog" class="id-card-image">
           <ul class="id-card-text">
-            <li style="transform: none; transition: none;">Jeff Jones</li>
-            <li style="transform: none; transition: none;">16.12.2016</li>
-            <li style="transform: none; transition: none;">5</li>
-            <li style="transform: none; transition: none;">Golden Retriever</li>
-            <li style="transform: none; transition: none;">Vaccines up to date</li>
+            <li style="transform: none; transition: none;"><%= petResults[i].petName %></li>
+            <li style="transform: none; transition: none;"><%= petResults[i].petType %></li>
+            <li style="transform: none; transition: none;"><%= petResults[i].petAge %></li>
+            <li style="transform: none; transition: none;"><%= petResults[i].petBreed %></li>
+            <li style="transform: none; transition: none;"><%= petResults[i].petVaccinated %></li>
           </ul>
           <p class="id-card-number">ID: #555fh5hg52f1fdf7228f8d3</p>
         </div>
       </div>
-      <div class="id-card-column" onclick="show('section2')">
-        <div class="id-card-image">
-          <img src="../img/catprofilepicture.jpg" alt="cat" class="id-card-image">
-          <ul class="id-card-text">
-            <li style="transform: none; transition: none;">Kitty Smith</li>
-            <li style="transform: none; transition: none;">06.08.2019</li>
-            <li style="transform: none; transition: none;">2</li>
-            <li style="transform: none; transition: none;">Toyger</li>
-            <li style="transform: none; transition: none;">Due for vaccine</li>
-          </ul>
-          <p class="id-card-number">ID: #555fh5hg52f1fdf8228f8d3</p>
-        </div>
-      </div>
+      <% } %>
       <div class="id-card-column" onclick="show('section3')">
         <img src="../img/add-icon.png" alt="add icon" class="id-card-add">
         <p class="id-card-add-text">Add New Pet</p>
@@ -57,26 +47,26 @@
       <div class="column2x2">
         <div class="pet-info-container">
           <h2 class="pet-info-text">Pet Name: </h2>
-          <p class="pet-info-text"> Jeff Jones</p>
-          <div class="row">
-            <h2 class="pet-info-text">Birthday: </h2>
-            <p class="pet-info-text"> 16.12.2016</p>
-          </div>
+          <p class="pet-info-text"> <%= petResults[j].petName %></p>
           <div class="row">
             <h2 class="pet-info-text">Age: </h2>
-            <p class="pet-info-text"> 5</p>
+            <p class="pet-info-text"> <%= petResults[j].petAge %></p>
+          </div>
+          <div class="row">
+            <h2 class="pet-info-text">Type: </h2>
+            <p class="pet-info-text"> <%= petResults[j].petType %></p>
           </div>
           <div class="row">
             <h2 class="pet-info-text">Breed: </h2>
-            <p class="pet-info-text"> Golden Retriever</p>
+            <p class="pet-info-text"> <%= petResults[j].petBreed %></p>
           </div>
           <div class="row">
             <h2 class="pet-info-text">Vaccination Status: </h2>
-            <p class="pet-info-text" style="color: green"> Up to date</p>
+            <p class="pet-info-text" style="color: green"> <%= petResults[j].petVaccinated %>e</p>
           </div>
           <div class="row">
             <h2 class="pet-info-text">Last Appointment Date: </h2>
-            <p class="pet-info-text"> 08.11.2020</p>
+            <p class="pet-info-text"> <%= petResults[j].petLastApp %></p>
           </div>
           <div class="row">
             <h2 class="pet-info-text">Microchip ID: </h2>
@@ -84,11 +74,11 @@
           </div>
           <div class="row">
             <h2 class="pet-info-text">Vet Practice: </h2>
-            <p class="pet-info-text"> Sunny Banks Veterinary Practice</p>
+            <p class="pet-info-text"> <%= petResults[j].petVetPractice %></p>
           </div>
           <div class="row">
             <h2 class="pet-info-text">Vet Name: </h2>
-            <p class="pet-info-text"> Mary Smith</p>
+            <p class="pet-info-text"> <%= petResults[j].petVetName %></p>
           </div>
           <div class="row">
             <button class="book-apt-button">Book Appointment</button>

@@ -45,4 +45,15 @@ module.exports = {
     })
   },
 
+  getPet: (email) => {
+    return new Promise((resolve, reject) => {
+      db.query('SELECT * FROM pets WHERE email = ?', [email], (error, results) =>{
+        if(error) {
+          return reject(error);
+        }
+        return resolve(results);
+      });
+    })
+  }
+
 };
