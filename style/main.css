@@ -1269,19 +1269,14 @@ label {
 /* Meet the team */
 
 .top-bg-img-about {
-  display: block;
-  width: 100%;
-  height: 30rem;
-  background: linear-gradient(to left, transparent, rgb(245, 245, 245)),
-    url("../img/logo.svg");
-  background-size: cover;
+  background: url("../img/logo.svg");
 }
 .title{
   text-transform: uppercase;
-  font-size: 3.5rem;
+  font-size: 56px;
   letter-spacing: 3px;
   margin-right: -3px;
-  margin-bottom: 5rem;
+  margin-bottom: 80px;
   text-align: center;
   color: #333;
   position: relative;
@@ -1289,33 +1284,32 @@ label {
 .card-wrapper{
   display: flex;
   align-items: center;
-  align-content: center;
   flex-direction: column;
 }
 .card{
-  width: 32rem;
+  width: 512px;
   background-color: #55468d;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 2rem 0;
-  box-shadow: .5rem .5rem 3rem rgb(0, 0, 0,0.2);
+  margin: 32px 0;
+  box-shadow: 8px 8px 48px rgb(0, 0, 0,0.2);
 }
 .card .card-img{
   width: 100%;
-  height: 26rem;
+  height: 416px;
   clip-path: polygon(0 0, 100% 0, 100% 78%, 0% 100%);;
 }
 
 .profile-img{
-  width: 15rem;
-  height: 15rem;
+  width: 240px;
+  height: 240px;
   object-fit: cover;
   border-radius: 50%;
-  margin-top: -11rem;
+  margin-top: -176px;
   z-index: 999;
-  border: 1rem solid #ebeef8;
+  border: 16px solid #ebeef8;
 }
 
 .card h1{
@@ -1326,26 +1320,26 @@ label {
 
 .job-title{
   color: #0096c7;
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 300;
 }
 
 .about{
-  font-size: 1.5rem;
-  margin: 1.5rem 0;
+  font-size: 24px;
+  margin: 24px 0;
   font-style: italic;
   text-align: center;
   color: #0096c7;
 
 }
 .card .btn{
-  padding: 1rem 2.5rem;
+  padding: 16px 40px;
   background-color: #445ae3;
-  border-radius: 2rem;
-  margin: 1rem 0;
+  border-radius: 32px;
+  margin: 16px 0;
   text-transform: uppercase;
   color: #55468d;
-  font-size: 1.4rem;
+  font-size: 22.4px;
   transition: all .5s;
 }
 .card .btn:active{
@@ -1363,7 +1357,7 @@ label {
 
 
   .card{
-      margin: 2rem;
+      margin: 32px;
   }
 
 }
