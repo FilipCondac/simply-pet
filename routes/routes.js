@@ -79,6 +79,16 @@ module.exports = (app) => {
         }
 
     });
+    app.get('/contact_us', (req, res) => {
+        if (req.session.loggedin) {
+            return res.render('contact_us.ejs', {
+                loginStatus: true
+            });
+        } else {
+            res.redirect('/login');
+        }
+
+    });
 
     //Login Page
     app.get('/login', (req, res) => {
