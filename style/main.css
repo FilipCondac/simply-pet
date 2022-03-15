@@ -26,9 +26,12 @@ header {
 
 #brand {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 22px;
   display: flex;
   align-items: center;
+  background: -webkit-linear-gradient(#0096c7, #48cae4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .logo {
@@ -47,7 +50,7 @@ header {
 }
 
 .brand-h1 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 ul {
@@ -72,6 +75,33 @@ ul li:hover {
   transition: 0.3s;
 }
 
+#profile,
+#signout {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#profile {
+  border: 1px solid #0096c7;
+
+}
+
+#signout {
+  border: 1px solid #0096c7;
+}
+
+#signout a {
+  color: red;
+}
+
+#profile a {
+  background: -webkit-linear-gradient(#0096c7, #48cae4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
 #login,
 #signup {
   border-radius: 5px;
@@ -79,19 +109,24 @@ ul li:hover {
 }
 
 #login {
-  border: 1px solid #00a6ff;
+  border: 1px solid #0096c7;
+
 }
 
 #signup {
-  border: 1px solid #00a6ff;
+  border: 1px solid #0096c7;
 }
 
 #signup a {
-  color: #00a6ff;
+  background: -webkit-linear-gradient(#0096c7, #48cae4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #login a {
-  color: #00a6ff;
+  background: -webkit-linear-gradient(#0096c7, #48cae4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #hamburger-icon {
@@ -398,7 +433,6 @@ ul li:hover {
   }
 }
 
-/*Appointments page*/
 :root {
   --dark-body: #4d4c5a;
   --dark-main: #141529;
@@ -416,31 +450,40 @@ ul li:hover {
   --white: #fff;
 
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  --font-family: cursive;
 }
 
 .dark {
   --bg-body: var(--dark-body);
   --bg-main: var(--dark-main);
-  --bg-second: var (--dark-second);
-  --color-hover: var(--dark-text);
+  --bg-second: var(--dark-second);
+  --color-hover: var(--dark-hover);
   --color-txt: var(--dark-text);
 }
 
 .light {
   --bg-body: var(--light-body);
   --bg-main: var(--light-main);
-  --bg-second: var (--light-second);
-  --color-hover: var(--light-text);
+  --bg-second: var(--light-second);
+  --color-hover: var(--light-hover);
   --color-txt: var(--light-text);
 }
 
-/*check whatsapp gc fil msg*/
-#appspage {
-  height: 100vh;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 50vh;
   display: grid;
-  place-items: center;
-  font-family: var(--font-family);
-  background-color: var (--bg-body);
+  place-items: left;
+  padding-top: 0px;
+  padding-left: 0px;
+  background-color: var(--bg-body);
 }
 
 .calendar {
@@ -451,6 +494,7 @@ ul li:hover {
   padding: 20px;
   position: relative;
   overflow: hidden;
+  /* transform: scale(1.25); */
 }
 
 .light .calendar {
@@ -472,10 +516,10 @@ ul li:hover {
 }
 
 .calendar-week-day {
+  height: 50px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   font-weight: 600;
-  height: 50px;
 }
 
 .calendar-week-day div {
@@ -500,6 +544,83 @@ ul li:hover {
   padding: 5px;
   position: relative;
   cursor: pointer;
+  animation: to-top 1s forwards;
+  /* border-radius: 50%; */
+}
+
+.calendar-days div span {
+  position: absolute;
+}
+
+.calendar-days div:hover span {
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+.calendar-days div span:nth-child(1),
+.calendar-days div span:nth-child(3) {
+  width: 2px;
+  height: 0;
+  background-color: var(--color-txt);
+}
+
+.calendar-days div:hover span:nth-child(1),
+.calendar-days div:hover span:nth-child(3) {
+  height: 100%;
+}
+
+.calendar-days div span:nth-child(1) {
+  bottom: 0;
+  left: 0;
+}
+
+.calendar-days div span:nth-child(3) {
+  top: 0;
+  right: 0;
+}
+
+.calendar-days div span:nth-child(2),
+.calendar-days div span:nth-child(4) {
+  width: 0;
+  height: 2px;
+  background-color: var(--color-txt);
+}
+
+.calendar-days div:hover span:nth-child(2),
+.calendar-days div:hover span:nth-child(4) {
+  width: 100%;
+}
+
+.calendar-days div span:nth-child(2) {
+  top: 0;
+  left: 0;
+}
+
+.calendar-days div span:nth-child(4) {
+  bottom: 0;
+  right: 0;
+}
+
+.calendar-days div:hover span:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.calendar-days div:hover span:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+.calendar-days div:hover span:nth-child(4) {
+  transition-delay: 0.6s;
+}
+
+.calendar-days div.curr-date,
+.calendar-days div.curr-date:hover {
+  background-color: var(--blue);
+  color: var(--white);
+  border-radius: 50%;
+}
+
+.calendar-days div.curr-date span {
+  display: none;
 }
 
 .month-picker {
@@ -511,6 +632,7 @@ ul li:hover {
 .month-picker:hover {
   background-color: var(--color-hover);
 }
+
 .year-picker {
   display: flex;
   align-items: center;
@@ -564,11 +686,64 @@ ul li:hover {
   top: 2px;
   left: 2px;
   transition: left 0.2s ease-in-out;
-} /*problem w dark mode toggle*/
+}
 
 .dark .dark-mode-switch .dark-mode-switch-ident {
   top: 2px;
   left: calc(2px + 50%);
+}
+
+.month-list {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--bg-main);
+  padding: 20px;
+  grid-template-columns: repeat(3, auto);
+  gap: 5px;
+  display: grid;
+  transform: scale(1.5);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.month-list.show {
+  transform: scale(1);
+  visibility: visible;
+  pointer-events: visible;
+  transition: all 0.2s ease-in-out;
+}
+
+.month-list>div {
+  display: grid;
+  place-items: center;
+}
+
+.month-list>div>div {
+  width: 100%;
+  padding: 5px 20px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  color: var(--color-txt);
+}
+
+.month-list>div>div:hover {
+  background-color: var(--color-hover);
+}
+
+@keyframes to-top {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Media Queries */
@@ -706,6 +881,11 @@ ul li:hover {
   margin-left: 10%;
 }
 
+.add-profile-picture {
+  width: 10rem;
+  height: auto;
+}
+
 @media only screen and (max-width: 1325px) {
   .column {
     height: 100%;
@@ -794,7 +974,8 @@ ul li:hover {
 }
 
 .login form input[type="password"],
-.login form input[type="text"] {
+.login form input[type="text"],
+.login form input[type="email"] {
   width: 310px;
   height: 50px;
   border: 1px solid #dee0e4;
@@ -865,6 +1046,7 @@ ul li:hover {
   top: 0;
   left: 0;
 }
+
 .calendar-days div span:nth-child(4) {
   bottom: 0;
   right: 0;
@@ -873,12 +1055,15 @@ ul li:hover {
 .calendar-days div:hover span:nth-child(2) {
   transition-delay: 0.2s;
 }
+
 .calendar-days div:hover span:nth-child(3) {
   transition-delay: 0.4s;
 }
+
 .calendar-days div:hover span:nth-child(4) {
   transition-delay: 0.6s;
 }
+
 label {
   display: block;
   font: 1rem 'Fira Sans', sans-serif;
@@ -888,6 +1073,7 @@ input,
 label {
   margin: .4rem 0;
 }
+
 
 /*footer section*/
 .site-footer
@@ -1059,4 +1245,24 @@ label {
     margin-right:0;
     font-weight:600
   }
+
+#map {
+  width: 800px;
+  height: 540px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 20.58823%;
+  margin-left: 350px;
+}
+
+#map_container {
+  position: relative;
+  padding-top: 0%;
+}
+
+#site-search {
+  margin-left: 630px;
+  text-align: center;
+
 }

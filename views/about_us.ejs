@@ -1,0 +1,16 @@
+<html>
+<%- include('../components/head') %>
+
+<body>
+  <!--Top Navigator-->
+  <% let sessionStatus = loginStatus %>
+  <%- include('../components/header', {loggedin: sessionStatus})%>
+
+  <div class="footer">
+    <ul class="footer-ul">
+        <li>2022 Simply Pet, Goldsmiths UOL, CSY2.</li>
+        <li>About us</li>        
+    </ul>
+</div>
+
+</html>
