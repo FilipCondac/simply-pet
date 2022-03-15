@@ -1,39 +1,160 @@
 <%- include('../components/head') %>
 
-<body>
-  <!--Top Navigator-->
+<body class="light">
+
   <% let sessionStatus = loginStatus %>
   <%- include('../components/header', {loggedin: sessionStatus})%>
+  <link rel="stylesheet" href="../style/appointments.css">
+  <div class="cm">
+    <div class="w70">
+      <div class="d-flex justify-content-center">
+        <div class="calendar">
+          <div>
+            <div class="calendar-header display-none">
+              <span class="month-picker" id="month-picker">February</span>
+              <div class="year-picker">
+                <span class="year-change" id="prev-year">
+                  <pre><</pre>
+                </span>
+                <span id="year">2021</span>
+                <span class="year-change" id="next-year">
+                  <pre>></pre>
+                </span>
+              </div>
+            </div>
+            <div class="calendar-body">
+              <div class="calendar-week-day display-none"></div>
+              <div class="calendar-days display-none"></div>
+              <input type="text" id="input-inline" placeholder="Select date" />
+              <div id="pick-inline"></div>
+              <input type="text" class="time-pickable" readonly placeholder="please select the time for it" />
+            </div>
+            <script>
+              window.addEventListener("load", () => {
+                picker.attach({
+                  target: "input-inline",
+                  container: "pick-inline",
+                });
+              });
+            </script>
 
-  <div class="calendar">
-    <div class="calendar-header">
-      <span class="month-picker" id="month-picker">February</span>
-      <div class="year-picker">
-        <span class="year-change" id="prev-year">
-          <pre><</pre>
-        </span>
-        <span id="year">2021</span>
-        <span class="year-change" id="next-year">
-          <pre>></pre>
-        </span>
+            <div class="calendar-footer">
+              <div class="toggle">
+                <span>Dark Mode</span>
+                <div class="dark-mode-switch">
+                  <div class="dark-mode-switch-ident"></div>
+                </div>
+              </div>
+            </div>
+            <div class="month-list"></div>
+          </div>
+          <div class="space">
+            <button>Cancel</button> <button>Reschedule</button>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="calendar-body">
-      <div class="calendar-week-day">
-        <div>Sun</div>
-        <div>Mon</div>
-        <div>Tue</div>
-        <div>Wed</div>
-        <div>Thu</div>
-        <div>Fri</div>
-        <div>Sat</div>
-      </div>
-      <div class="calendar-days"></div>
+  </div>
+  <div class="row cd">
+    <div class="col-lg-8">
+      <form class="padmar">
+        <div>
+          <label for="exampleInputEmail1" class="form-label row p10">
+            <div class="col-12">Name</div>
+          </label>
+          <div class="row mb-3 marg">
+            <div class="col-6">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+              <div id="emailHelp" class="form-text">FirstName</div>
+            </div>
+            <div class="col-6">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+              <div id="emailHelp" class="form-text">LastName</div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3 marg">
+          <div class="col-6">
+            <label for="exampleInputEmail1" class="form-label row">
+              <div class="col">Phone Number</div>
+            </label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <div id="emailHelp" class="form-text">
+              Please enter a valid phone number
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="exampleInputEmail1" class="form-label row">
+              <div class="col">Email</div>
+            </label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <div id="emailHelp" class="form-text">example@example.com</div>
+          </div>
+        </div>
+        <div class="row mb-3 marg">
+          <div class="col-6">
+            <label for="exampleInputEmail1" class="form-label row">
+              <div class="col">
+                which pet would you like this appointment for?
+              </div>
+            </label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Please select</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label for="exampleInputEmail1" class="form-label row">
+              <div class="col">What seems to be the issue?</div>
+            </label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Please select</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div>
+        <div class="marg">
+          <div class="">
+            <label for="exampleInputEmail1" class="form-label row">
+              <div class="col">
+                Can you explain the symptoms more in detail?
+              </div>
+            </label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="7"
+              placeholder="Text here ..."></textarea>
+          </div>
+        </div>
+      </form>
     </div>
-
-    <div class="month-list"></div>
   </div>
 
+  <script>
+    mobiscroll.setOptions({
+      locale: mobiscroll
+        .localeEn, // Specify language like: locale: mobiscroll.localePl or omit setting to use default
+      theme: "ios", // Specify theme like: theme: 'ios' or omit setting to use default
+      themeVariant: "light", // More info about themeVariant: https://docs.mobiscroll.com/5-15-0/javascript/calendar#opt-themeVariant
+    });
+
+    // mobiscroll.datepicker("#demo", {
+    //   controls: ["calendar", "time"], // More info about controls: https://docs.mobiscroll.com/5-15-0/javascript/calendar#opt-controls
+    //   display: "inline", // Specify display mode like: display: 'bottom' or omit setting to use default
+    // });
+
+    mobiscroll.datepicker("#demo-timegrid", {
+      controls: ["calendar",
+        "timegrid"
+      ], // More info about controls: https://docs.mobiscroll.com/5-15-0/javascript/calendar#opt-controls
+      display: "inline", // Specify display mode like: display: 'bottom' or omit setting to use default
+    });
+  </script>
+
+
+  <script src="../util/calendarPicker.js"></script>
 
   <%- include('../components/scriptsEnd') %>
   <%- include('../components/footer')  %>
