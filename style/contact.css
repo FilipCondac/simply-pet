@@ -1,4 +1,4 @@
-.form{width:340px;
+  .form_contact{width:340px;
     height:440px;
     background:#e6e6e6;
     border-radius:8px;
@@ -54,7 +54,7 @@ button:hover{
     background:#78788c;
     color:#fff
 }
-div{
+.div{
     content:'Hi';
     position:absolute;
     bottom:-5px;
@@ -71,3 +71,5 @@ span{
     margin: 40px 10px 30px 15px;
    
 }
+ 
+  
