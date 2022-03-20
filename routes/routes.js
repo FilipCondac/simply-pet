@@ -75,7 +75,9 @@ module.exports = (app) => {
                 loginStatus: true
             });
         } else {
-            res.redirect('/login');
+            return res.render('about_us.ejs', {
+                loginStatus: false
+            });
         }
 
     });
@@ -85,7 +87,9 @@ module.exports = (app) => {
                 loginStatus: true
             });
         } else {
-            res.redirect('/login');
+            return res.render('contact_us.ejs', {
+                loginStatus: false
+            });
         }
 
     });

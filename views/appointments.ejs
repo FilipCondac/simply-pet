@@ -27,7 +27,7 @@
               <div class="calendar-days display-none"></div>
               <input type="text" id="input-inline" placeholder="Select date" />
               <div id="pick-inline"></div>
-              <input type="text" class="time-pickable" readonly placeholder="please select the time for it" />
+              <input type="text" class="time-pickable" readonly placeholder="Select a time for the appointment" />
             </div>
             <script>
               window.addEventListener("load", () => {
@@ -39,12 +39,6 @@
             </script>
 
             <div class="calendar-footer">
-              <div class="toggle">
-                <span>Dark Mode</span>
-                <div class="dark-mode-switch">
-                  <div class="dark-mode-switch-ident"></div>
-                </div>
-              </div>
             </div>
             <div class="month-list"></div>
           </div>
@@ -95,7 +89,7 @@
           <div class="col-6">
             <label for="exampleInputEmail1" class="form-label row">
               <div class="col">
-                which pet would you like this appointment for?
+                Attending pet
               </div>
             </label>
             <select class="form-select" aria-label="Default select example">
@@ -107,7 +101,7 @@
           </div>
           <div class="col-6">
             <label for="exampleInputEmail1" class="form-label row">
-              <div class="col">What seems to be the issue?</div>
+              <div class="col">Potential Issue</div>
             </label>
             <select class="form-select" aria-label="Default select example">
               <option selected>Please select</option>
@@ -121,13 +115,14 @@
           <div class="">
             <label for="exampleInputEmail1" class="form-label row">
               <div class="col">
-                Can you explain the symptoms more in detail?
+                Give a brief explination of the symptoms
               </div>
             </label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="7"
               placeholder="Text here ..."></textarea>
           </div>
         </div>
+        <input type="submit" value="Submit">
       </form>
     </div>
   </div>
