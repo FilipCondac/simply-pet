@@ -4,27 +4,29 @@
     <!--Top Navigator-->
     <% let sessionStatus = loginStatus %>
     <%- include('../components/header', {loggedin: sessionStatus})%>
+    <div class="login-background">
+        <div class="login">
+            <h1 class="text-gradient">Sign-Up</h1>
+            <form action="/newAuth" method="post">
+                <label for="username">
+                    <!-- font awesome icon -->
+                    <i class="fas fa-user"></i>
+                </label>
+                <input type="text" name="username" placeholder="Username" id="username" required>
 
-    <div class="login">
-        <h1>Sign-Up</h1>
-        <form action="/newAuth" method="post">
-            <label for="username">
-                <!-- font awesome icon -->
-                <i class="fas fa-user"></i>
-            </label>
-            <input type="text" name="username" placeholder="Username" id="username" required>
+                <label for="email">
+                    <i class="fas fa-lock"></i>
+                </label>
+                <input type="email" name="email" placeholder="E-Mail" id="email" required>
 
-            <label for="email">
-                <i class="fas fa-lock"></i>
-            </label>
-            <input type="email" name="email" placeholder="E-Mail" id="email" required>
-
-            <label for="password">
-                <i class="fas fa-lock"></i>
-            </label>
-            <input type="password" name="password" placeholder="Password" id="password" required>
-            <input type="submit" value="Login">
-        </form>
+                <label for="password">
+                    <i class="fas fa-lock"></i>
+                </label>
+                <input type="password" name="password" placeholder="Password" id="password" required>
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+        <%- include('../components/footer')  %>
         <%- include('../components/scriptsEnd') %>
 
 </body>

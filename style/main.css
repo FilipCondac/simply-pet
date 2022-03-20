@@ -201,6 +201,20 @@ ul li:hover {
   -webkit-text-fill-color: transparent;
 }
 
+.text-gradient {
+
+  background: -webkit-linear-gradient(#0096c7, #48cae4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-background {
+  background: linear-gradient(#0096c7, #55468d);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
 .main-content {
   background-color: rgb(245, 245, 245);
   box-shadow: 0 4px 2px -2px rgb(172, 171, 171);
@@ -637,7 +651,9 @@ ul li:hover {
 
 .login h1 {
   text-align: center;
-  color: #5b6574;
+  background: -webkit-linear-gradient(#0096c7, #48cae4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 24px;
   padding: 20px 0 20px 0;
   border-bottom: 1px solid #dee0e4;
@@ -656,7 +672,7 @@ ul li:hover {
   align-items: center;
   width: 50px;
   height: 50px;
-  background-color: #3274d6;
+  background-color: #55468d;
   color: #ffffff;
 }
 
@@ -674,7 +690,7 @@ ul li:hover {
   width: 100%;
   padding: 15px;
   margin-top: 20px;
-  background-color: #3274d6;
+  background-color: #55468d;
   border: 0;
   cursor: pointer;
   font-weight: bold;
