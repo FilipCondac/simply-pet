@@ -1,8 +1,6 @@
 // Route handler for forum web app
 
-const {
-    response
-} = require("express");
+const {response} = require("express");
 const req = require("express/lib/request");
 const res = require("express/lib/response");
 const database = require("../util/database");
@@ -27,7 +25,7 @@ module.exports = (app) => {
     });
 
 
-
+    //Appointment
     app.get('/appointments', (req, res) => {
         if (req.session.loggedin) {
             //Display page if logged in 
@@ -40,6 +38,35 @@ module.exports = (app) => {
         }
     });
 
+    //Create Appointment
+    app.post('/createAppointment', (req, res) => {
+        let appointmentDate = req.body.appointmentDate;
+        let appointmentFirstName = req.body.appointmentFirstName;
+        let appointmentLastName = req.body.appointmentLastName;
+        let appointmentNumber = req.body.appointmentNumber;
+        let appointmentIssue = req.body.appointmentIssue;
+        let appointmentDescription = req.body.appointmentDescription;
+        let petName = req.body.petName;
+        let email = req.session.email;
+        // let appointmentTime = req.body.
+
+        //Check if fields are filled
+        if (appointmentFirstName && appointmentLastName && appointmentNumber && appointmentIssue && appointmentDescription &&
+            petName && email) {
+            database.createAppointment(appointmentDate, appointmentFirstName, appointmentLastName, appointmentNumber, appointmentIssue, appointmentDescription, petName, email).then((resolve) => {
+                const dataInserted = resolve;
+                if (dataInserted) {
+                    res.redirect('/appointments');
+                }
+                return res.end();
+            }).catch(err => {
+                console.error(err);
+                return res.sendStatus(500);
+            })
+        }
+    })
+
+    //Pet passport
     app.get('/petpassport', (req, res) => {
         if (req.session.loggedin) {
             //Display page if logged in 
@@ -48,6 +75,7 @@ module.exports = (app) => {
                 const results = resolve;
                 if (results) {
                     return res.render('petpassport.ejs', {
+                        //Return queried results from our function in database.js
                         loginStatus: true,
                         petResults: results
                     });
@@ -57,11 +85,7 @@ module.exports = (app) => {
             return res.redirect('/login');
         }
     });
-
-    app.post('/petpassport', (req, res) => {
-
-    });
-
+    //Pet tracker
     app.get('/pettracker', (req, res) => {
         if (req.session.loggedin) {
             return res.render('pettracker.ejs', {
@@ -73,6 +97,7 @@ module.exports = (app) => {
 
     });
 
+    //About us
     app.get('/about_us', (req, res) => {
         if (req.session.loggedin) {
             return res.render('about_us.ejs', {
@@ -85,6 +110,8 @@ module.exports = (app) => {
         }
 
     });
+
+    //Contact us
     app.get('/contact_us', (req, res) => {
         if (req.session.loggedin) {
             return res.render('contact_us.ejs', {
@@ -112,10 +139,7 @@ module.exports = (app) => {
 
     });
 
-    app.post('/login', (req, res) => {
-
-    });
-
+    //Login system
     app.post('/auth', (request, response) => {
         // Capture the input fields
         let email = request.body.email;
@@ -144,7 +168,7 @@ module.exports = (app) => {
         }
     });
 
-    //Sign Up
+    //Sign Up page
     app.get('/signup', (req, res) => {
         if (req.session.loggedin) {
             return res.redirect('/');
@@ -156,10 +180,7 @@ module.exports = (app) => {
 
     });
 
-    app.post('/signup', (request, response) => {
-
-    });
-
+    //Sign up form action
     app.post('/newAuth', (request, response) => {
         let username = request.body.username;
         let password = request.body.password;
@@ -182,13 +203,16 @@ module.exports = (app) => {
         }
     });
 
+    //Logout
     app.get('/logout', (req, res) => {
         req.session.destroy(function (err) {
             res.redirect('/'); //Inside a callback… bulletproof!
         });
     });
-
+    
+    //Add pet to account
     app.post('/addPet', (req, res) => {
+        //Request variables from the body
         let petName = req.body.petname;
         let petAge = req.body.petage;
         let petType = req.body.pettype;
@@ -199,6 +223,7 @@ module.exports = (app) => {
         let petVetName = req.body.petvetname;
         let email = req.session.email;
 
+        //Call function and insert data if the user input is good
         if (petName && petAge && petType && petBreed && petVaccinated && petLastApp && petVetPractice &&
             petVetName && email) {
             database.createPet(petName, petAge, petType, petBreed, petVaccinated, petLastApp, petVetPractice, petVetName, email).then((resolve) => {
@@ -214,32 +239,5 @@ module.exports = (app) => {
         }
     });
 
-    app.post('/createAppointment', (req, res) => {
-        let appointmentDate = req.body.appointmentDate;
-        let appointmentFirstName = req.body.appointmentFirstName;
-        let appointmentLastName = req.body.appointmentLastName;
-        let appointmentNumber = req.body.appointmentNumber;
-        let appointmentIssue = req.body.appointmentIssue;
-        let appointmentDescription = req.body.appointmentDescription;
-        let petName = req.body.petName;
-        let email = req.session.email;
-        // let appointmentTime = req.body.
-
-        if (appointmentFirstName && appointmentLastName && appointmentNumber && appointmentIssue && appointmentDescription &&
-            petName && email) {
-            database.createAppointment(appointmentDate, appointmentFirstName, appointmentLastName, appointmentNumber, appointmentIssue, appointmentDescription, petName, email).then((resolve) => {
-                const dataInserted = resolve;
-                if (dataInserted) {
-                    res.redirect('/appointments');
-                }
-                return res.end();
-            }).catch(err => {
-                console.error(err);
-                return res.sendStatus(500);
-            })
-        }
-    })
-
-
-
+    
 }
