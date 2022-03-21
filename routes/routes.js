@@ -4,6 +4,7 @@ const {
     response
 } = require("express");
 const req = require("express/lib/request");
+const res = require("express/lib/response");
 const database = require("../util/database");
 
 module.exports = (app) => {
@@ -46,7 +47,10 @@ module.exports = (app) => {
             database.getPet(email).then((resolve) => {
                 const results = resolve;
                 if (results) {
-                    return res.render('petpassport.ejs',{loginStatus: true , petResults:results});
+                    return res.render('petpassport.ejs', {
+                        loginStatus: true,
+                        petResults: results
+                    });
                 }
             })
         } else {
@@ -209,6 +213,32 @@ module.exports = (app) => {
             })
         }
     });
+
+    app.post('/createAppointment', (req, res) => {
+        let appointmentDate = req.body.appointmentDate;
+        let appointmentFirstName = req.body.appointmentFirstName;
+        let appointmentLastName = req.body.appointmentLastName;
+        let appointmentNumber = req.body.appointmentNumber;
+        let appointmentIssue = req.body.appointmentIssue;
+        let appointmentDescription = req.body.appointmentDescription;
+        let petName = req.body.petName;
+        let email = req.session.email;
+        // let appointmentTime = req.body.
+
+        if (appointmentFirstName && appointmentLastName && appointmentNumber && appointmentIssue && appointmentDescription &&
+            petName && email) {
+            database.createAppointment(appointmentDate, appointmentFirstName, appointmentLastName, appointmentNumber, appointmentIssue, appointmentDescription, petName, email).then((resolve) => {
+                const dataInserted = resolve;
+                if (dataInserted) {
+                    res.redirect('/appointments');
+                }
+                return res.end();
+            }).catch(err => {
+                console.error(err);
+                return res.sendStatus(500);
+            })
+        }
+    })
 
 
 

@@ -54,6 +54,18 @@ module.exports = {
         return resolve(results);
       });
     })
+  },
+  
+  createAppointment : (appointmentDate, appointmentFirstName, appointmentLastName, appointmentNumber, appointmentIssue, appointmentDescription, petName, email) => {
+    return new Promise((resolve, reject) => {
+      db.query('INSERT INTO appointments (appointmentDate, appointmentFirstName, appointmentLastName, appointmentNumber, appointmentIssue, appointmentDescription, name, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', 
+      [appointmentDate, appointmentFirstName, appointmentLastName, appointmentNumber, appointmentIssue, appointmentDescription, petName, email], (error,results) => {
+        if(error){
+          return reject(error);
+        }
+        return resolve(true);
+      });
+    })
   }
 
 };

@@ -4,125 +4,130 @@
 
   <% let sessionStatus = loginStatus %>
   <%- include('../components/header', {loggedin: sessionStatus})%>
+
   <link rel="stylesheet" href="../style/appointments.css">
   <div class="cm">
     <div class="w70">
       <div class="d-flex justify-content-center">
-        <div class="calendar">
-          <div>
-            <div class="calendar-header display-none">
-              <span class="month-picker" id="month-picker">February</span>
-              <div class="year-picker">
-                <span class="year-change" id="prev-year">
-                  <pre><</pre>
-                </span>
-                <span id="year">2021</span>
-                <span class="year-change" id="next-year">
-                  <pre>></pre>
-                </span>
+        <form class="padmar" action="/createAppointment" method="post">
+          <div class="calendar">
+            <div>
+              <div class="calendar-header display-none">
+                <span class="month-picker" id="month-picker">February</span>
+                <div class="year-picker">
+                  <span class="year-change" id="prev-year">
+                    <pre><</pre>
+                  </span>
+                  <span id="year">2021</span>
+                  <span class="year-change" id="next-year">
+                    <pre>></pre>
+                  </span>
+                </div>
               </div>
-            </div>
-            <div class="calendar-body">
-              <div class="calendar-week-day display-none"></div>
-              <div class="calendar-days display-none"></div>
-              <input type="text" id="input-inline" placeholder="Select date" name="appointmentDate" />
-              <div id="pick-inline"></div>
-              <input type="text" class="time-pickable" readonly placeholder="Select a time for the appointment" />
-            </div>
-            <script>
-              window.addEventListener("load", () => {
-                picker.attach({
-                  target: "input-inline",
-                  container: "pick-inline",
+              <div class="calendar-body">
+                <div class="calendar-week-day display-none"></div>
+                <div class="calendar-days display-none"></div>
+                <input type="text" id="input-inline" placeholder="Selected date" name="appointmentDate" />
+                <div id="pick-inline"></div>
+                <input type="text" class="time-pickable" readonly placeholder="Select a time for the appointment" />
+              </div>
+              <script>
+                window.addEventListener("load", () => {
+                  picker.attach({
+                    target: "input-inline",
+                    container: "pick-inline",
+                  });
                 });
-              });
-            </script>
+              </script>
 
-            <div class="calendar-footer">
+              <div class="calendar-footer">
+              </div>
+              <div class="month-list"></div>
             </div>
-            <div class="month-list"></div>
+            <div class="space">
+              <button>Cancel</button> <button>Reschedule</button>
+            </div>
           </div>
-          <div class="space">
-            <button>Cancel</button> <button>Reschedule</button>
-          </div>
-        </div>
       </div>
     </div>
   </div>
   <div class="row cd">
     <div class="col-lg-8">
-      <form class="padmar">
-        <div>
-          <label for="exampleInputEmail1" class="form-label row p10">
-            <div class="col-12">Name</div>
+
+      <div>
+        <label for="exampleInputEmail1" class="form-label row p10">
+          <div class="col-12">Name</div>
+        </label>
+        <div class="row mb-3 marg">
+          <div class="col-6">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              name="appointmentFirstName" required />
+            <div id="emailHelp" class="form-text">First Name</div>
+          </div>
+          <div class="col-6">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              name="appointmentLastName" />
+            <div id="emailHelp" class="form-text">Last Name</div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3 marg">
+        <div class="col-6">
+          <label for="exampleInputEmail1" class="form-label row">
+            <div class="col">Phone Number</div>
           </label>
-          <div class="row mb-3 marg">
-            <div class="col-6">
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-              <div id="emailHelp" class="form-text">FirstName</div>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            name="appointmentNumber" />
+          <div id="emailHelp" class="form-text">
+            Please enter a valid phone number
+          </div>
+        </div>
+        <div class="col-6">
+          <label for="exampleInputEmail1" class="form-label row">
+            <div class="col">Email</div>
+          </label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" />
+          <div id="emailHelp" class="form-text">example@example.com</div>
+        </div>
+      </div>
+      <div class="row mb-3 marg">
+        <div class="col-6">
+          <label for="exampleInputEmail1" class="form-label row">
+            <div class="col">
+              Attending pet
             </div>
-            <div class="col-6">
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-              <div id="emailHelp" class="form-text">LastName</div>
+          </label>
+          <select class="form-select" aria-label="Default select example" name="petName">
+            <option selected>Please select</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col-6">
+          <label for="exampleInputEmail1" class="form-label row">
+            <div class="col">Potential Issue</div>
+          </label>
+          <select class="form-select" aria-label="Default select example" name="appointmentIssue">
+            <option selected>Please select</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+      <div class="marg">
+        <div class="">
+          <label for="exampleInputEmail1" class="form-label row">
+            <div class="col">
+              Give a brief explination of the symptoms
             </div>
-          </div>
+          </label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="7" placeholder="Text here ..."
+            name="appointmentDescription"></textarea>
         </div>
-        <div class="row mb-3 marg">
-          <div class="col-6">
-            <label for="exampleInputEmail1" class="form-label row">
-              <div class="col">Phone Number</div>
-            </label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-            <div id="emailHelp" class="form-text">
-              Please enter a valid phone number
-            </div>
-          </div>
-          <div class="col-6">
-            <label for="exampleInputEmail1" class="form-label row">
-              <div class="col">Email</div>
-            </label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-            <div id="emailHelp" class="form-text">example@example.com</div>
-          </div>
-        </div>
-        <div class="row mb-3 marg">
-          <div class="col-6">
-            <label for="exampleInputEmail1" class="form-label row">
-              <div class="col">
-                Attending pet
-              </div>
-            </label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Please select</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-          </div>
-          <div class="col-6">
-            <label for="exampleInputEmail1" class="form-label row">
-              <div class="col">Potential Issue</div>
-            </label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Please select</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-          </div>
-        </div>
-        <div class="marg">
-          <div class="">
-            <label for="exampleInputEmail1" class="form-label row">
-              <div class="col">
-                Give a brief explination of the symptoms
-              </div>
-            </label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="7"
-              placeholder="Text here ..."></textarea>
-          </div>
-        </div>
-        <input type="submit" value="Submit">
+      </div>
+      <input type="submit" value="Submit">
       </form>
     </div>
   </div>
