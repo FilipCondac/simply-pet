@@ -64,7 +64,7 @@
           </div>
           <div class="col-6">
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              name="appointmentLastName" />
+              name="appointmentLastName" required />
             <div id="emailHelp" class="form-text">Last Name</div>
           </div>
         </div>
@@ -75,7 +75,7 @@
             <div class="col">Phone Number</div>
           </label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-            name="appointmentNumber" />
+            name="appointmentNumber" required />
           <div id="emailHelp" class="form-text">
             Please enter a valid phone number
           </div>
@@ -84,13 +84,12 @@
           <label for="exampleInputEmail1" class="form-label row">
             <div class="col">Issue Severity</div>
           </label>
-          <select class="form-select" aria-label="Default select example" name="appointmentSeverity">
+          <select class="form-select" aria-label="Default select example" name="appointmentSeverity" required>
             <option selected>Please select</option>
             <option value="Mild">Mild</option>
             <option value="Severe">Severe</option>
             <option value="Emergency">Emergency</option>
           </select>
-
         </div>
       </div>
       <div class="row mb-3 marg">
@@ -100,7 +99,7 @@
               Attending pet
             </div>
           </label>
-          <select class="form-select" aria-label="Default select example" name="petName">
+          <select class="form-select" aria-label="Default select example" name="petName" required>
             <option selected>Please select</option>
             <% for(i = 0;  i < petResults.length; i++) {%>
             <option value='<%= petResults[i].petName %> '><%= petResults[i].petName %></option>

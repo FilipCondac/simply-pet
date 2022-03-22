@@ -224,20 +224,19 @@ module.exports = (app) => {
     //Add pet to account
     app.post('/addPet', (req, res) => {
         //Request variables from the body
-        let petName = req.body.petname;
-        let petAge = req.body.petage;
-        let petType = req.body.pettype;
-        let petBreed = req.body.petbreed;
-        let petVaccinated = req.body.vacstat;
-        let petLastApp = req.body.lastaptdate;
-        let petVetPractice = req.body.petvet;
-        let petVetName = req.body.petvetname;
+        let petName = req.body.petName;
+        let petAge = req.body.petAge;
+        let petType = req.body.petType;
+        let petBreed = req.body.petBreed;
+        let petVaccinated = req.body.vacStat;
+        let petVetPractice = req.body.petVet;
+        let petVetName = req.body.petVetName;
         let email = req.session.email;
 
         //Call function and insert data if the user input is good
-        if (petName && petAge && petType && petBreed && petVaccinated && petLastApp && petVetPractice &&
+        if (petName && petAge && petType && petBreed && petVaccinated && petVetPractice &&
             petVetName && email) {
-            database.createPet(petName, petAge, petType, petBreed, petVaccinated, petLastApp, petVetPractice, petVetName, email).then((resolve) => {
+            database.createPet(petName, petAge, petType, petBreed, petVaccinated, petVetPractice, petVetName, email).then((resolve) => {
                 const dataInserted = resolve;
                 if (dataInserted) {
                     res.redirect('/petpassport');

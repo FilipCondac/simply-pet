@@ -35,10 +35,10 @@ module.exports = {
   },
 
  //Input pet info into database based on express session email
-  createPet: (petName, petAge, petType, petBreed, petVaccinated , petLastApp, petVetPractice, petVetName, email) => {
+  createPet: (petName, petAge, petType, petBreed, petVaccinated , petVetPractice, petVetName, email) => {
     return new Promise((resolve, reject) => {
-      db.query('INSERT INTO pets (petName, petAge, petType, petBreed, petVaccinated , petLastApp, petVetPractice, petVetName, email) VALUES (?,?,?,?,?,?,?,?,?)', 
-      [petName, petAge, petType, petBreed, petVaccinated , petLastApp, petVetPractice, petVetName, email], (error, results)=>{
+      db.query('INSERT INTO pets (petName, petAge, petType, petBreed, petVaccinated , petVetPractice, petVetName, email) VALUES (?,?,?,?,?,?,?,?)', 
+      [petName, petAge, petType, petBreed, petVaccinated , petVetPractice, petVetName, email], (error, results)=>{
         if (error) {
           return reject(error);
         }
