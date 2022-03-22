@@ -3,6 +3,7 @@
 const {response} = require("express");
 const req = require("express/lib/request");
 const res = require("express/lib/response");
+const { VARCHAR } = require("mysql/lib/protocol/constants/types");
 const database = require("../util/database");
 
 module.exports = (app) => {
@@ -41,19 +42,23 @@ module.exports = (app) => {
     //Create Appointment
     app.post('/createAppointment', (req, res) => {
         let appointmentDate = req.body.appointmentDate;
+        let appointmentTime = req.body.appointmentTime;
         let appointmentFirstName = req.body.appointmentFirstName;
         let appointmentLastName = req.body.appointmentLastName;
         let appointmentNumber = req.body.appointmentNumber;
+        let appointmentSeverity = req.body.appointmentSeverity;
         let appointmentIssue = req.body.appointmentIssue;
         let appointmentDescription = req.body.appointmentDescription;
         let petName = req.body.petName;
         let email = req.session.email;
-        // let appointmentTime = req.body.
+
+        
+       
 
         //Check if fields are filled
         if (appointmentFirstName && appointmentLastName && appointmentNumber && appointmentIssue && appointmentDescription &&
             petName && email) {
-            database.createAppointment(appointmentDate, appointmentFirstName, appointmentLastName, appointmentNumber, appointmentIssue, appointmentDescription, petName, email).then((resolve) => {
+            database.createAppointment(appointmentDate, appointmentTime, appointmentFirstName, appointmentLastName, appointmentNumber, appointmentIssue, appointmentDescription, petName, email, appointmentSeverity).then((resolve) => {
                 const dataInserted = resolve;
                 if (dataInserted) {
                     res.redirect('/appointments');

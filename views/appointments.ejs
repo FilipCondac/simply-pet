@@ -29,7 +29,7 @@
                 <div class="calendar-days display-none"></div>
                 <input type="text" id="input-inline" placeholder="Selected date" name="appointmentDate" />
                 <div id="pick-inline"></div>
-                <input type="text" class="time-pickable" readonly placeholder="Select a time for the appointment" />
+                <input type="time" id="appt" name="appointmentTime" min="09:00" max="18:00" required>
               </div>
               <script>
                 window.addEventListener("load", () => {
@@ -44,9 +44,7 @@
               </div>
               <div class="month-list"></div>
             </div>
-            <div class="space">
-              <button>Cancel</button> <button>Reschedule</button>
-            </div>
+
           </div>
       </div>
     </div>
@@ -84,10 +82,15 @@
         </div>
         <div class="col-6">
           <label for="exampleInputEmail1" class="form-label row">
-            <div class="col">Email</div>
+            <div class="col">Issue Severity</div>
           </label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" />
-          <div id="emailHelp" class="form-text">example@example.com</div>
+          <select class="form-select" aria-label="Default select example" name="appointmentSeverity">
+            <option selected>Please select</option>
+            <option value="Mild">Mild</option>
+            <option value="Severe">Severe</option>
+            <option value="Emergency">Emergency</option>
+          </select>
+
         </div>
       </div>
       <div class="row mb-3 marg">
@@ -106,13 +109,14 @@
         </div>
         <div class="col-6">
           <label for="exampleInputEmail1" class="form-label row">
-            <div class="col">Potential Issue</div>
+            <div class="col">Reason for appointment</div>
           </label>
           <select class="form-select" aria-label="Default select example" name="appointmentIssue">
             <option selected>Please select</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="Check up">Check up</option>
+            <option value="Neutering">Neutering</option>
+            <option value="Vaccination">Vaccination</option>
+            <option value="Other(Please elaborate bellow)">Other(Please elaborate bellow)</option>
           </select>
         </div>
       </div>

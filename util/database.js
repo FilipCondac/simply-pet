@@ -60,10 +60,10 @@ module.exports = {
   },
 
    //Input user created appointments into DB
-  createAppointment : (appointmentDate, appointmentFirstName, appointmentLastName, appointmentNumber, appointmentIssue, appointmentDescription, petName, email) => {
+  createAppointment : (appointmentDate, appointmentTime, appointmentFirstName, appointmentLastName, appointmentNumber, appointmentIssue, appointmentDescription, petName, email, appointmentSeverity) => {
     return new Promise((resolve, reject) => {
-      db.query('INSERT INTO appointments (appointmentDate, appointmentFirstName, appointmentLastName, appointmentNumber, appointmentIssue, appointmentDescription, name, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', 
-      [appointmentDate, appointmentFirstName, appointmentLastName, appointmentNumber, appointmentIssue, appointmentDescription, petName, email], (error,results) => {
+      db.query('INSERT INTO appointments (appointmentDate, appointmentTime, appointmentFirstName, appointmentLastName, appointmentNumber, appointmentIssue, appointmentDescription, name, email, appointmentSeverity) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', 
+      [appointmentDate, appointmentTime, appointmentFirstName, appointmentLastName, appointmentNumber, appointmentIssue, appointmentDescription, petName, email, appointmentSeverity], (error,results) => {
         if(error){
           return reject(error);
         }
