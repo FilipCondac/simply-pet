@@ -1,4 +1,3 @@
-// A web application to provide discussion forums
 // Import the modules we need
 var express = require ('express')
 var ejs = require('ejs')
@@ -15,6 +14,7 @@ const db = mysql.createConnection ({
     password: '',
     database: 'simplypet'
 });
+
 // Connect to the database
 db.connect((err) => {
     if (err) {
@@ -37,11 +37,6 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
-
-// app.use((req, res, next) => {
-//    	console.log(req.body);
-//     next();
-// });
 
 
 // Set the directory where tatic files (css, js, etc) will be
