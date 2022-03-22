@@ -18,6 +18,7 @@
       profile:</h1>
     <div class="row">
       <% let j = 0; %>
+      <% if(petResults.length > 0){ %>
       <% for(let i = 0; i < petResults.length; i++){ %>
       <div id='<%=i%>' class="id-card-column" onclick="show('section1');">
         <div class="id-card-image">
@@ -33,6 +34,7 @@
         </div>
       </div>
       <% } %>
+      <% } %>
       <div class="id-card-column" onclick="show('section3')">
         <img src="../img/add-icon.png" alt="add icon" class="id-card-add">
         <p class="id-card-add-text">Add New Pet</p>
@@ -46,6 +48,7 @@
       </div>
       <div class="column2x2">
         <div class="pet-info-container">
+          <% if(petResults.length > 0){ %>
           <h2 class="pet-info-text">Pet Name: </h2>
           <p class="pet-info-text"> <%= petResults[j].petName %></p>
           <div class="row">
@@ -88,8 +91,10 @@
       <div style="width:auto">
         <img src="../img/qr-code.png" alt="QR Code" class="qr-code">
       </div>
+      <% } %>
     </div>
   </div>
+
   </div>
   <div id="section2" style="display:none">
     <div class="row" style="background-image: url('../img/pawprint-lighter.jpg');">
