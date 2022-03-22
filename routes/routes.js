@@ -30,13 +30,21 @@ module.exports = (app) => {
     app.get('/appointments', (req, res) => {
         if (req.session.loggedin) {
             //Display page if logged in 
-            return res.render('appointments.ejs', {
-                loginStatus: true
-            });
+            let email = req.session.email;
+            database.getPet(email).then((resolve) => {
+                const results = resolve;
+                if (results) {
+                    return res.render('appointments.ejs',  {
+                        //Return queried results from our function in database.js
+                        loginStatus: true,
+                        petResults: results
+                    });
+                }
+            })
         } else {
-            //Redirect to login page if not
             return res.redirect('/login');
         }
+        
     });
 
     //Create Appointment
@@ -53,8 +61,6 @@ module.exports = (app) => {
         let email = req.session.email;
 
         
-       
-
         //Check if fields are filled
         if (appointmentFirstName && appointmentLastName && appointmentNumber && appointmentIssue && appointmentDescription &&
             petName && email) {

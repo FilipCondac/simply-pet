@@ -102,9 +102,9 @@
           </label>
           <select class="form-select" aria-label="Default select example" name="petName">
             <option selected>Please select</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <% for(i = 0;  i < petResults.length; i++) {%>
+            <option value='<%= petResults[i].petName %> '><%= petResults[i].petName %></option>
+            <% } %>
           </select>
         </div>
         <div class="col-6">
