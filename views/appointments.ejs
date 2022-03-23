@@ -23,8 +23,7 @@
       </tr>
     </thead>
     <tbody>
-      <% console.log(appResults) %>
-      <!-- Add gray background every other colour -->
+
       <% for(i = 0; i < appResults.length; i ++) { %>
       <tr <% if(i % 2 == 1){ %> style="background-color: lightgray;" <% } %>>
         <td><%=appResults[i].appointmentID %></td>
@@ -32,7 +31,11 @@
         <td><%=appResults[i].appointmentDate %></td>
         <td><%=appResults[i].appointmentTime %></td>
         <td><%=appResults[i].name %></td>
-        <td><%=appResults[i].appointmentSeverity %></td>
+        <!-- Colour coding severity -->
+        <td <% if(appResults[i].appointmentSeverity == "Emergency"){ %> style="color: red;"
+          <%}%><% if(appResults[i].appointmentSeverity == "Severe"){ %> style="color: amber;"
+          <%}%><% if(appResults[i].appointmentSeverity == "Mild"){ %> style="color: green;"
+          <%}%>><%=appResults[i].appointmentSeverity %></td> <!-- End of colour code -->
         <td><%=appResults[i].appointmentIssue %></td>
         <td><%=appResults[i].appointmentDescription %></td>
       </tr>
@@ -163,7 +166,7 @@
               </div>
             </label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="7" placeholder="Text here ..."
-              name="appointmentDescription"></textarea>
+              name="appointmentDescription" maxlength="200"></textarea>
           </div>
         </div>
         <input type="submit" value="Submit">
