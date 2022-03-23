@@ -169,8 +169,11 @@ ul li:hover {
   position: absolute;
   top: 50px;
   left: 0;
-  height: calc(100vh - 50px);
   width: 100%;
+  background-color: #55468de0;
+  margin-top: 13px;
+  height: fit-content;
+
 }
 
 .mobile-menu li {

@@ -40,7 +40,9 @@
           ><%=petResults[i].petVaccinated %></td> <!-- End of function-->
         <td><%=petResults[i].petVetPractice %></td>
         <td><%=petResults[i].petVetName %></td>
-        <td> <button type="submit" class="btn btn-primary" style="background-color: #55468d;">View</button></td>
+
+        <td> <button type="submit" class="btn btn-primary" style="background-color: #55468d;"
+            onclick="location.href='/petPassportView';">View</button></td>
       </tr>
       <% } %>
     </tbody>

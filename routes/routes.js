@@ -96,6 +96,28 @@ module.exports = (app) => {
             return res.redirect('/login');
         }
     });
+
+     //Pet passport
+     app.get('/petPassportView', (req, res) => {
+        if (req.session.loggedin) {
+            //Display page if logged in 
+            let email = req.session.email;
+            database.getPet(email).then((resolve) => {
+                const results = resolve;
+                if (results) {
+                    return res.render('petPassportView.ejs', {
+                        //Return queried results from our function in database.js
+                        loginStatus: true,
+                        petResults: results
+                    });
+                }
+            })
+        } else {
+            return res.redirect('/login');
+        }
+    });
+
+
     //Pet tracker
     app.get('/pettracker', (req, res) => {
         if (req.session.loggedin) {
