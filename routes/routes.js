@@ -32,13 +32,20 @@ module.exports = (app) => {
             //Display page if logged in 
             let email = req.session.email;
             database.getPet(email).then((resolve) => {
-                const results = resolve;
-                if (results) {
-                    return res.render('appointments.ejs',  {
-                        //Return queried results from our function in database.js
-                        loginStatus: true,
-                        petResults: results
-                    });
+                const petResults = resolve;
+                if (petResults) {
+                    database.getAppointments(email).then((resolve) =>{
+                        const appResults = resolve;
+                        if(appResults){
+                            return res.render('appointments.ejs',  {
+                                //Return queried results from our function in database.js
+                                appResults : appResults,
+                                loginStatus: true,
+                                petResults: petResults
+                            });
+                        }
+                       
+                    })
                 }
             })
         } else {

@@ -75,6 +75,17 @@ module.exports = {
     })
   },
 
+  getAppointments: (email) => {
+    return new Promise((resolve, reject) => {
+      db.query('SELECT * FROM appointments WHERE email = ?', [email], (error, results) =>{
+        if(error) {
+          return reject(error);
+        }
+        return resolve(results);
+      });
+    })
+  },
+
    //Input user created appointments into DB
   createAppointment : (appointmentDate, appointmentTime, appointmentFirstName, appointmentLastName, appointmentNumber, appointmentIssue, appointmentDescription, petName, email, appointmentSeverity) => {
     return new Promise((resolve, reject) => {
