@@ -22,6 +22,7 @@ header {
   height: 65px;
   display: flex;
   justify-content: space-between;
+  font-size: 17px;
 }
 
 #brand {
@@ -170,9 +171,10 @@ ul li:hover {
   top: 50px;
   left: 0;
   width: 100%;
-  background-color: #55468de0;
+  background-color: #55468d;
   margin-top: 13px;
   height: fit-content;
+  z-index: 2;
 
 }
 
@@ -894,12 +896,19 @@ ul li:hover {
 
 }
 
+.white-h1 {
+  color: white;
+  font-size: 3rem;
+  z-index: -1;
+}
+
 .pet-table {
   width: 95%;
   margin-right: auto;
   margin-left: auto;
   border: black;
   border-style: solid;
+
   box-shadow: 0 4px 2px -2px rgb(172, 171, 171);
 }
 
@@ -911,6 +920,7 @@ ul li:hover {
   padding-right: 5px;
   margin-bottom: 10px;
   padding: 10px;
+  background-color: white;
   border: 1px solid #55468d;
   box-shadow: -1px 1px #55468d,
     -2px 2px #55468d,

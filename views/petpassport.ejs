@@ -1,12 +1,12 @@
 <%- include('../components/head') %>
 
-<body>
+<body style="background-color: #0096c7;">
   <% let sessionStatus = loginStatus %>
   <%- include('../components/header', {loggedin: sessionStatus})%>
 
   <!-- Page title section -->
   <div class="intro" title="Pet Passport">
-    <h3 class="h3-main-page">Pet Passport</h3>
+    <h3 class="white-h1">Pet Passport</h3>
   </div>
 
   <table class="table pet-table">
@@ -27,7 +27,8 @@
     <tbody>
       <!-- Add gray background every other colour -->
       <% for(i = 0; i < petResults.length; i ++) { %>
-      <tr <% if(i % 2 == 1){ %> style="background-color: lightgray;" <% } %>>
+      <tr <% if(i % 2 == 1){ %> style="background-color: lightgray;" <% } %> <% if(i % 2 == 0){ %>
+        style="background-color: white;" <% } %>>
         <td scope="row"> <%= i + 1 %> </td>
         <td><%=petResults[i].petID %></td>
         <td><%=petResults[i].petName %></td>
