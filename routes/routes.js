@@ -6,9 +6,8 @@ const res = require("express/lib/response");
 const { VARCHAR } = require("mysql/lib/protocol/constants/types");
 const database = require("../util/database");
 
+// Handle our routes
 module.exports = (app) => {
-
-    // Handle our routes
 
     // Home page
     app.get('/', (req, res) => {
