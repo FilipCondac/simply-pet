@@ -199,14 +199,16 @@ module.exports = (app) => {
         //Check if all fields are completed
         if (email && password && username) {
             //Check if user exists, if it doesn't then create the account
-            database.checkIfUserExists(email).then((res) => {
+            database.checkIfEmailExists(email).then((res) => {
                 const userExists = res;
                 if (!userExists) {
                     database.createUser(email, username, password);
+                   return response.redirect("/login");
                 } else {
-                    response.redirect('/home');
+                    console.log("Not Created")
+                    return response.redirect('/signup');
                 }
-                return response.redirect('/');
+                return response.end();
             }).catch(err => {
                 console.error(err);
                 return response.sendStatus(500);

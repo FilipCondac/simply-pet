@@ -20,6 +20,21 @@ module.exports = {
     })
   },
 
+  checkIfEmailExists: (email, password) => {
+    return new Promise((resolve, reject) => {
+      db.query('SELECT * FROM accounts WHERE email = ?', [email], (error, results) => {
+        // If there is an issue with the query, output the error
+        if (error) reject(error);
+        // If the account exists
+        if (results.length > 0) {
+          return resolve(true);
+        } else {
+          return resolve(false);
+        }
+      });
+    })
+  },
+
    //Input user information into database for express to check against
   createUser: (email, username, password) => {
     return new Promise((resolve, reject) => {
@@ -46,6 +61,7 @@ module.exports = {
       });
     })
   },
+
 
   //Return the pets that match session email
   getPet: (email) => {
