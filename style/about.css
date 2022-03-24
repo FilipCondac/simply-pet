@@ -1,0 +1,139 @@
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 6px;
+    margin-right: 0;
+    border-radius: 100%;
+    background-color: lightcoral;
+}
+
+
+
+.top-bg-img-about {
+    display: block;
+    width: 100%;
+    height: 30rem;
+    background: linear-gradient(to left, transparent, rgb(245, 245, 245)),
+        url("../img/slideIMG1.jpeg");
+    background-size: cover;
+}
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Georama", sans-serif;
+    font-size: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+section {
+    padding: 10rem 0;
+    background-color: #fff;
+}
+
+.title {
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+    margin-right: -3px;
+    margin-bottom: 5rem;
+    text-align: center;
+    color: #333;
+    position: relative;
+}
+
+.card-wrapper {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.card {
+    width: 32rem;
+    background-color: #55468d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    box-shadow: .5rem .5rem 3rem rgb(0, 0, 0, 0.2);
+}
+
+.card .card-img {
+    width: 100%;
+    height: 26rem;
+    object-fit: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 78%, 0% 100%);
+
+}
+
+.profile-img {
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: -11rem;
+    z-index: 999;
+    border: 1rem solid #ebeef8;
+}
+
+.card h1 {
+    font-size: 2.5rem;
+    color: #0096c7;
+    margin: 1.5rem 0;
+}
+
+.job-title {
+    color: #0096c7;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.about {
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    text-align: center;
+    color: #0096c7;
+
+}
+
+.card .btn {
+    padding: 1rem 2.5rem;
+    background-color: #445ae3;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    text-transform: uppercase;
+    color: #55468d;
+    font-size: 1.4rem;
+    transition: all .5s;
+}
+
+.card .btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+@media screen and (min-width: 700px) {
+    .card-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .card {
+        margin: 2rem;
+    }
+}

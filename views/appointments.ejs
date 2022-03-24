@@ -1,39 +1,203 @@
 <%- include('../components/head') %>
 
-<body>
-  <!--Top Navigator-->
+<body class="light" style="background-color: #0096c7;">
+
   <% let sessionStatus = loginStatus %>
   <%- include('../components/header', {loggedin: sessionStatus})%>
 
-  <div class="calendar">
-    <div class="calendar-header">
-      <span class="month-picker" id="month-picker">February</span>
-      <div class="year-picker">
-        <span class="year-change" id="prev-year">
-          <pre><</pre>
-        </span>
-        <span id="year">2021</span>
-        <span class="year-change" id="next-year">
-          <pre>></pre>
-        </span>
-      </div>
-    </div>
-    <div class="calendar-body">
-      <div class="calendar-week-day">
-        <div>Sun</div>
-        <div>Mon</div>
-        <div>Tue</div>
-        <div>Wed</div>
-        <div>Thu</div>
-        <div>Fri</div>
-        <div>Sat</div>
-      </div>
-      <div class="calendar-days"></div>
-    </div>
-
-    <div class="month-list"></div>
+  <link rel="stylesheet" href="../style/appointments.css">
+  <div class="intro" title="Upcoming Appointments">
+    <h3 class="white-h1">Upcoming Appointments</h3>
   </div>
+  <table class="table pet-table">
+    <thead class="pet-table-thead">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Pet</th>
+        <th scope="col">Severity</th>
+        <th scope="col">Issue</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
 
+      <% for(i = 0; i < appResults.length; i ++) { %>
+      <tr <% if(i % 2 == 1){ %> style="background-color: lightgray;" <% } %> <% if(i % 2 == 0){ %>
+        style="background-color: white;" <% } %>>
+        <td><%=appResults[i].appointmentID %></td>
+        <td><%=appResults[i].appointmentFirstName %> <%=appResults[i].appLastName %></td>
+        <td><%=appResults[i].appointmentDate %></td>
+        <td><%=appResults[i].appointmentTime %></td>
+        <td><%=appResults[i].name %></td>
+        <!-- Colour coding severity -->
+        <td <% if(appResults[i].appointmentSeverity == "Emergency"){ %> style="color: red;"
+          <%}%><% if(appResults[i].appointmentSeverity == "Severe"){ %> style="color: amber;"
+          <%}%><% if(appResults[i].appointmentSeverity == "Mild"){ %> style="color: green;"
+          <%}%>><%=appResults[i].appointmentSeverity %></td> <!-- End of colour code -->
+        <td><%=appResults[i].appointmentIssue %></td>
+        <td><%=appResults[i].appointmentDescription %></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+
+  <div class="intro" title="Create Appointment">
+    <h3 class="white-h1">Create an Appointment</h3>
+  </div>
+  <div class="pet-form">
+    <div class="cm ">
+      <div class="w70">
+        <div class="d-flex justify-content-center">
+          <form class="padmar" action="/createAppointment" method="post">
+            <div class="calendar">
+              <div>
+                <div class="calendar-header display-none">
+                  <span class="month-picker" id="month-picker">February</span>
+                  <div class="year-picker">
+                    <span class="year-change" id="prev-year">
+                      <pre><</pre>
+                    </span>
+                    <span id="year">2021</span>
+                    <span class="year-change" id="next-year">
+                      <pre>></pre>
+                    </span>
+                  </div>
+                </div>
+                <div class="calendar-body">
+                  <div class="calendar-week-day display-none"></div>
+                  <div class="calendar-days display-none"></div>
+                  <input type="text" id="input-inline" placeholder="Selected date" name="appointmentDate" />
+                  <div id="pick-inline"></div>
+                  <input type="time" id="appt" name="appointmentTime" min="09:00" max="18:00" required>
+                </div>
+                <script>
+                  window.addEventListener("load", () => {
+                    picker.attach({
+                      target: "input-inline",
+                      container: "pick-inline",
+                    });
+                  });
+                </script>
+
+                <div class="calendar-footer">
+                </div>
+                <div class="month-list"></div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="row cd">
+      <div class="col-lg-8">
+        <div>
+          <label for="exampleInputEmail1" class="form-label row p10">
+            <div class="col-12">Name</div>
+          </label>
+          <div class="row mb-3 marg">
+            <div class="col-6">
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                name="appointmentFirstName" required />
+              <div id="emailHelp" class="form-text">First Name</div>
+            </div>
+            <div class="col-6">
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                name="appointmentLastName" required />
+              <div id="emailHelp" class="form-text">Last Name</div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3 marg">
+          <div class="col-6">
+            <label for="exampleInputEmail1" class="form-label row">
+              <div class="col">Phone Number</div>
+            </label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              name="appointmentNumber" required />
+            <div id="emailHelp" class="form-text">
+              Please enter a valid phone number
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="exampleInputEmail1" class="form-label row">
+              <div class="col">Issue Severity</div>
+            </label>
+            <select class="form-select" aria-label="Default select example" name="appointmentSeverity" required>
+              <option selected>Please select</option>
+              <option value="Mild">Mild</option>
+              <option value="Severe">Severe</option>
+              <option value="Emergency">Emergency</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-3 marg">
+          <div class="col-6">
+            <label for="exampleInputEmail1" class="form-label row">
+              <div class="col">
+                Attending pet
+              </div>
+            </label>
+            <select class="form-select" aria-label="Default select example" name="petName" required>
+              <option selected>Please select</option>
+              <% for(i = 0;  i < petResults.length; i++) {%>
+              <option value='<%= petResults[i].petName %> '><%= petResults[i].petName %></option>
+              <% } %>
+            </select>
+          </div>
+          <div class="col-6">
+            <label for="exampleInputEmail1" class="form-label row">
+              <div class="col">Reason for appointment</div>
+            </label>
+            <select class="form-select" aria-label="Default select example" name="appointmentIssue">
+              <option selected>Please select</option>
+              <option value="Check up">Check up</option>
+              <option value="Neutering">Neutering</option>
+              <option value="Vaccination">Vaccination</option>
+              <option value="Other(Please elaborate bellow)">Other(Please elaborate bellow)</option>
+            </select>
+          </div>
+        </div>
+        <div class="marg">
+          <div class="">
+            <label for="exampleInputEmail1" class="form-label row">
+              <div class="col">
+                Give a brief explination of the symptoms
+              </div>
+            </label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="7" placeholder="Text here ..."
+              name="appointmentDescription" maxlength="200"></textarea>
+          </div>
+        </div>
+        <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    mobiscroll.setOptions({
+      locale: mobiscroll
+        .localeEn, // Specify language like: locale: mobiscroll.localePl or omit setting to use default
+      theme: "ios", // Specify theme like: theme: 'ios' or omit setting to use default
+      themeVariant: "light", // More info about themeVariant: https://docs.mobiscroll.com/5-15-0/javascript/calendar#opt-themeVariant
+    });
+
+    // mobiscroll.datepicker("#demo", {
+    //   controls: ["calendar", "time"], // More info about controls: https://docs.mobiscroll.com/5-15-0/javascript/calendar#opt-controls
+    //   display: "inline", // Specify display mode like: display: 'bottom' or omit setting to use default
+    // });
+
+    mobiscroll.datepicker("#demo-timegrid", {
+      controls: ["calendar",
+        "timegrid"
+      ], // More info about controls: https://docs.mobiscroll.com/5-15-0/javascript/calendar#opt-controls
+      display: "inline", // Specify display mode like: display: 'bottom' or omit setting to use default
+    });
+  </script>
+
+
+  <script src="../util/calendarPicker.js"></script>
 
   <%- include('../components/scriptsEnd') %>
   <%- include('../components/footer')  %>

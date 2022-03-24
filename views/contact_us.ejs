@@ -1,0 +1,50 @@
+<%- include('../components/head') %>
+
+<body>
+  <!--Top Navigator-->
+  <% let sessionStatus = loginStatus %>
+  <%- include('../components/header', {loggedin: sessionStatus})%>
+  <link rel="stylesheet" href="../style/contact.css">
+
+  <section>
+    <h1 class="white-h1 centered-text">Customer Support</h1>
+    <div class="form_contact">
+      <form onsubmit="sendEmail(); reset(); return false">
+        <h2>CONTACT US</h2>
+        <p type="Name:" id="name"><input placeholder="Full name" required></input></p>
+        <p type="Email:" id="email"><input placeholder="Email Address" required></input></p>
+        <p type="Message:" id="message"><input placeholder="What would you like to tell us" required></input></p>
+        <button type="submit">Send</button>
+        <div>
+          <span class="fa fa-phone"></span>07047122978
+          <span class="fa fa-envelope-o"></span> simplypetuk@gmail.com
+      </form>
+    </div>
+    <script src=" https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail() {
+        Email.send({
+          Host: "smtp.gmail.com",
+          Username: "omartahir567@gmail.com",
+          Password: "Qw4hd213421",
+          To: 'simplypetuk@gmail.com',
+          From: document.getElementById("email").value,
+          Subject: "New Enquiry",
+          Body: "Name: " + document.getElementById("name").value +
+            "<br> Email:" + document.getElementById("email").value +
+            "<br> Message:" + document.getElementById("message").value
+        }).then(
+          message => alert("Message Sent!")
+        );
+      }
+    </script>
+
+
+
+  </section>
+
+</body>
+<%- include('../components/scriptsEnd') %>
+<%- include('../components/footer')  %>
+
+</html>

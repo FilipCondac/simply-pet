@@ -1,221 +1,97 @@
 <%- include('../components/head') %>
 
-<body>
-  <!-- <div class = "background-div"> -->
-  <!--Top Navigator-->
+<body style="background-color: #0096c7;">
   <% let sessionStatus = loginStatus %>
   <%- include('../components/header', {loggedin: sessionStatus})%>
 
   <!-- Page title section -->
   <div class="intro" title="Pet Passport">
-    <h3 class="h3-main-page">Pet Passport</h3>
-  </div>
+    <h3 class="white-h1">Pet Passport</h3>
   </div>
 
+  <table class="table pet-table">
+    <thead class="pet-table-thead">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Type</th>
+        <th scope="col">Breed</th>
+        <th scope="col">Vaccinated</th>
+        <th scope="col">Vet Practice</th>
+        <th scope="col">Vet Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Add gray background every other colour -->
+      <% for(i = 0; i < petResults.length; i ++) { %>
+      <tr <% if(i % 2 == 1){ %> style="background-color: lightgray;" <% } %> <% if(i % 2 == 0){ %>
+        style="background-color: white;" <% } %>>
+        <td scope="row"> <%= i + 1 %> </td>
+        <td><%=petResults[i].petID %></td>
+        <td><%=petResults[i].petName %></td>
+        <td><%=petResults[i].petAge %></td>
+        <td><%=petResults[i].petType %></td>
+        <td><%=petResults[i].petBreed %></td>
+        <!-- Colour changing for vaccination status -->
+        <td <% if(petResults[i].petVaccinated == "Vaccinated"){ %> style="color: green;" <%}%>
+          <% if(petResults[i].petVaccinated == "Due for Vaccine"){ %> style="color: red;" <%}%>
+          ><%=petResults[i].petVaccinated %></td> <!-- End of function-->
+        <td><%=petResults[i].petVetPractice %></td>
+        <td><%=petResults[i].petVetName %></td>
 
-  <div class="pet-information">
-    <h1 style="font-size: x-large; color: white; margin-top:5px; margin-left: 10px;">Select your pet to view their
-      profile:</h1>
-    <div class="row">
-      <div class="id-card-column" onclick="show('section1')">
-        <div class="id-card-image">
-          <img src="../img/dogprofilepicture.jpg" alt="pet 1 profile picture" class="id-card-image">
-          <ul class="id-card-text">
-            <li style="transform: none; transition: none;">Jeff Jones</li>
-            <li style="transform: none; transition: none;">16.12.2016</li>
-            <li style="transform: none; transition: none;">5</li>
-            <li style="transform: none; transition: none;">Golden Retriever</li>
-            <li style="transform: none; transition: none;">Vaccines up to date</li>
-          </ul>
-          <p class="id-card-number">ID: #555fh5hg52f1fdf5228f8d3</p>
-        </div>
+        <td> <button type="submit" class="btn btn-primary" style="background-color: #55468d;"
+            onclick="location.href='/petPassportView';">View</button></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+
+  <div class="pet-form">
+    <h3 class="h3-main-page centered-text">Add Pet</h3>
+    <form action="/addPet" method="post">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Pet Name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Enter full name" name="petName">
       </div>
-      <div class="id-card-column" onclick="show('section2')">
-        <div class="id-card-image">
-          <img src="../img/catprofilepicture.jpg" alt="pet 2 profile picture" class="id-card-image">
-          <ul class="id-card-text">
-            <li style="transform: none; transition: none;">Kitty Smith</li>
-            <li style="transform: none; transition: none;">06.08.2019</li>
-            <li style="transform: none; transition: none;">2</li>
-            <li style="transform: none; transition: none;">Toyger</li>
-            <li style="transform: none; transition: none;">Due for vaccine</li>
-          </ul>
-          <p class="id-card-number">ID: #555fh5hg52f1fdf8228f8d3</p>
-        </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Pet Age</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Enter aproximate age" name="petAge">
       </div>
-      <div class="id-card-column" onclick="show('section3')">
-        <img src="../img/add-icon.png" alt="add icon" class="id-card-add">
-        <p class="id-card-add-text">Add New Pet</p>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Pet type</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="e.g. Cat/Dog" name="petType">
       </div>
-    </div>
-  </div>
-  <div id="section1" style="display:block;">
-    <div class="row" style="background-image: url('../img/pawprint-lighter.jpg');">
-      <div class="column2x2">
-        <img src="../img/dogprofilepicture.jpg" alt="pet profile picture" class="profile-picture">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Pet Breed</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="e.g. Collie/Bengal" name="petBreed">
       </div>
-      <div class="column2x2">
-        <div class="pet-info-container">
-          <div class="row">
-            <h2 class="pet-info-text">Pet Name: </h2>
-            <p class="pet-info-text-p"> Jeff Jones</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Birthday: </h2>
-            <p class="pet-info-text-p"> 16.12.2016</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Age: </h2>
-            <p class="pet-info-text-p"> 5</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Breed: </h2>
-            <p class="pet-info-text-p"> Golden Retriever</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Vaccination Status: </h2>
-            <p class="pet-info-text-p" style="color: green"> Up to date</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Last Appointment Date: </h2>
-            <p class="pet-info-text-p"> 08.11.2020</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Microchip ID: </h2>
-            <p class="pet-info-text-p"> 123456789123456</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Vet Practice: </h2>
-            <p class="pet-info-text-p"> Sunny Banks Veterinary Practice</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Vet Name: </h2>
-            <p class="pet-info-text-p"> Mary Smith</p>
-          </div>
-          <div class="row">
-            <button class="book-apt-button">Book Appointment</button>
-          </div>
-        </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Pet Vet Practice</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Vet Practice" name="petVet">
       </div>
-      <div style="width:auto;">
-        <img src="../img/qr-code.png" alt="QR Code" class="qr-code">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Pet Vet Name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Pet Vet Name" name="petVetName">
       </div>
-    </div>
-  </div>
-  </div>
-  <div id="section2" style="display:none">
-    <div class="row" style="background-image: url('../img/pawprint-lighter.jpg');">
-      <div class="column2x2">
-        <img src="../img/catprofilepicture.jpg" alt="pet profile picture" class="profile-picture">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Pet Vaccinated</label>
+        <select class="form-select" aria-label="Default select example" name="vacStat" required>
+          <option selected>Please select</option>
+          <option value="Vaccinated">Vaccinated</option>
+          <option value="Due for Vaccine">Due for Vaccine</option>
+        </select>
       </div>
-      <div class="column2x2">
-        <div class="pet-info-container">
-          <div class="row">
-            <h2 class="pet-info-text">Pet Name: </h2>
-            <p class="pet-info-text-p"> Kitty Smith</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Birthday: </h2>
-            <p class="pet-info-text-p"> 06.08.2020</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Age: </h2>
-            <p class="pet-info-text-p"> 2</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Breed: </h2>
-            <p class="pet-info-text-p"> Toyger</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Vaccination Status: </h2>
-            <p class="pet-info-text-p" style="color: red"> Due for vaccine</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Last Appointment Date: </h2>
-            <p class="pet-info-text-p"> 08.11.2020</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Microchip ID: </h2>
-            <p class="pet-info-text-p"> 123456789123456</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Vet Practice: </h2>
-            <p class="pet-info-text-p"> Sunny Banks Veterinary Practice</p>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Vet Name: </h2>
-            <p class="pet-info-text-p"> Mary Smith</p>
-          </div>
-          <div class="row">
-            <button class="book-apt-button">Book Appointment</button>
-          </div>
-        </div>
-      </div>
-      <div style="width:auto">
-        <img src="../img/qr-code.png" alt="QR Code" class="qr-code">
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
-  <div id="section3" style="display:none; background-image: url('../img/pawprint-lighter.jpg');">
-    <div class="row" style="background-image: url('../img/pawprint-lighter.jpg');">
-      <div class="column2x2">
-        <img src="../img/addimage.png" alt="add pet picture icon" class="profile-picture" style="margin-left: 1em; max-width: 85%">
-      </div>
-      <div class="column2x2">
-        <div class="pet-info-container">
-          <div class="row">
-            <h2 class="pet-info-text">Pet Name: </h2>
-            <input type="text" id="fname" name="fname" class="new-pet-input">
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Birthday: </h2>
-            <input type="date" id="bday" name="bday" style="margin-bottom: 5px; margin-left: 20px;">
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Age: </h2>
-            <input type="number" id="age" name="age" style="margin-bottom: 5px; width: 15%; margin-left: 20px;">
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Breed: </h2>
-            <input type="text" id="breed" name="breed">
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Vaccination Status: </h2>
-            <select id="vacstat" name="vacstat" style="margin-bottom: 5px; margin-left: 20px;">
-              <option value="australia">Up to date</option>
-              <option value="canada">Due for vaccine</option>
-            </select>
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Last Appointment Date: </h2>
-            <input type="date" id="lastaptdat" name="lastaptdat" style="margin-bottom: 5px; margin-left: 20px;">
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Microchip ID: </h2>
-            <input type="number" id="micid" name="micid" style="margin-bottom: 5px; margin-left: 20px;">
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Vet Practice: </h2>
-            <input type="text" id="vetaddr" name="vetaddr">
-          </div>
-          <div class="row">
-            <h2 class="pet-info-text">Vet Name: </h2>
-            <input type="text" id="vetnam" name="vetnam">
-          </div>
-          <div class="row">
-            <button class="book-apt-button">Submit</button>
-          </div>
-        </div>
-      </div>
-      <div style="width:auto">
-        <img src="../img/generateqr.svg" alt="generate QR Code" class="qr-code">
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
+      <button type="submit" style="background-color: #55468d;" class="btn btn-primary">Submit</button>
+    </form>
   </div>
 
 
