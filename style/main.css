@@ -492,6 +492,7 @@ ul li:hover {
   display: inline;
   font-size: xx-large;
 }
+
 .pet-info-text-p {
   text-align: left;
   display: inline;
@@ -512,6 +513,7 @@ ul li:hover {
   .pet-info-text {
     font-size: x-large;
   }
+
   .pet-info-text-p {
     text-align: left;
     display: inline;
@@ -611,6 +613,7 @@ input[type=text] {
   margin-left: 20px;
   margin-bottom: 5px;
 }
+
 .add-profile-picture {
   width: 10rem;
   height: auto;
@@ -674,7 +677,6 @@ input[type=text] {
     background-color: #000;
     color: #ffffff;
     font-size: 0.8em;
-    margin-top: 25px;
     padding-top: 15px;
     padding-bottom: 10px;
     position: relative;
