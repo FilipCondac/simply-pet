@@ -27,7 +27,7 @@ global.db = db;
 
 // Create the express application object
 const app = express()
-const port = 8000
+const port = process.env.PORT;
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.json()) 
 
