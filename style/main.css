@@ -606,13 +606,6 @@ ul li:hover {
   margin-left: 10%;
 }
 
-input[type=text] {
-  width: 40%;
-  padding: 1px 0.5px 1px 10px;
-  box-sizing: border-box;
-  margin-bottom: 5px;
-}
-
 .add-profile-picture {
   width: 10rem;
   height: auto;
